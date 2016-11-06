@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using University.Models;
 
 namespace UniversityLocal.Controllers
 {
@@ -13,6 +15,38 @@ namespace UniversityLocal.Controllers
         {
             return View();
         }
+
+        public virtual async Task<SchoolSubject> GetSchoolSubjectsById()
+        {
+            return null;
+        }
+
+        public virtual async Task<SchoolSubject> SetExamGradeForSchoolSubject()
+        {
+            return null;
+        }
+
+        public virtual async Task<SchoolSubject> UpdateExameGradeForSchoolSubject()
+        {
+            return null;
+        }
+
+        public virtual async Task<T> SetGradeForStudentActivity()
+        {
+            return null;
+        }
+
+        public virtual async Task<T> SetLaboratoryPresenceLevel(List<Student> students )
+        {
+            return null;
+        }
+
+        public virtual async Task<T> SetPercentOfStudentActivityForFinalAverageGrades(List<Student> students)
+        {
+            return null;
+        }
+
+
 
         // GET: Professor/Details/5
         public ActionResult Details(int id)
