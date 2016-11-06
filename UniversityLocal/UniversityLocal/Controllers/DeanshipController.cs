@@ -99,5 +99,17 @@ namespace UniversityLocal.Controllers
         {
             return null;
         }
+
+        public virtual async Task<SchoolSubjectStudentAssignments> CalculateAverageOfGradesForAStudentSchoolSubject()
+        {
+            return null;
+        }
+
+        public virtual async Task<T> GenerateGradeRaport()
+        {
+
+            return null;
+        }
+
     }
 }

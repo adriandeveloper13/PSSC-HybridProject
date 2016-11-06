@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using University.Models;
@@ -15,6 +16,11 @@ namespace UniversityLocal.Controllers
             return View();
         }
 
+
+        public virtual async Task<SchoolSubject> ListSchoolSubjectGrades()
+        {
+            return null;
+        }
         // GET: Student/Details/5
         public ActionResult Details(int id)
         {
