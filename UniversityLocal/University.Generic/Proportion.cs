@@ -15,7 +15,7 @@ namespace University.Generic
 
         public decimal Fraction { get { return (decimal)_numerator / (decimal)_denominator; } }
 
-        internal Proportion(int numerator, int denominator)
+        public Proportion(int numerator, int denominator)
         {
             Contract.Requires<ArgumentException>(numerator > 0, "numerator");
             Contract.Requires<ArgumentException>(denominator > 0, "denominator");

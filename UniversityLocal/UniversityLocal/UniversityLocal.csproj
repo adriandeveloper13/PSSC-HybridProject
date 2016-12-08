@@ -289,6 +289,18 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\University.Generic\University.Generic.csproj">
+      <Project>{FC59A4A2-2C92-48DF-9DA9-1C3DA60D257D}</Project>
+      <Name>University.Generic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\University.Models.Deanship\University.Models.Deanship.csproj">
+      <Project>{C4BF73B9-80E2-47C0-BE0C-65385FC41B54}</Project>
+      <Name>University.Models.Deanship</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\University.Models.SchoolSubject\University.Models.SchoolSubject.csproj">
+      <Project>{2D327D1E-236A-4C8E-B95E-20D0A543C971}</Project>
+      <Name>University.Models.SchoolSubject</Name>
+    </ProjectReference>
     <ProjectReference Include="..\University.Models\University.Models.csproj">
       <Project>{5aafc24d-e474-4b77-b230-460f3f106b94}</Project>
       <Name>University.Models</Name>

@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "University.Models", "Univer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "University.Generic", "University.Generic\University.Generic.csproj", "{FC59A4A2-2C92-48DF-9DA9-1C3DA60D257D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "University.Models.SchoolSubject", "University.Models.SchoolSubject\University.Models.SchoolSubject.csproj", "{2D327D1E-236A-4C8E-B95E-20D0A543C971}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "University.Models.Deanship", "University.Models.Deanship\University.Models.Deanship.csproj", "{C4BF73B9-80E2-47C0-BE0C-65385FC41B54}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +33,14 @@ Global
 		{FC59A4A2-2C92-48DF-9DA9-1C3DA60D257D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC59A4A2-2C92-48DF-9DA9-1C3DA60D257D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC59A4A2-2C92-48DF-9DA9-1C3DA60D257D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D327D1E-236A-4C8E-B95E-20D0A543C971}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D327D1E-236A-4C8E-B95E-20D0A543C971}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D327D1E-236A-4C8E-B95E-20D0A543C971}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D327D1E-236A-4C8E-B95E-20D0A543C971}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4BF73B9-80E2-47C0-BE0C-65385FC41B54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4BF73B9-80E2-47C0-BE0C-65385FC41B54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4BF73B9-80E2-47C0-BE0C-65385FC41B54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4BF73B9-80E2-47C0-BE0C-65385FC41B54}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,5 +48,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{5AAFC24D-E474-4B77-B230-460F3F106B94} = {5EA7A0B3-94A2-40D9-B017-689721ED74F0}
 		{FC59A4A2-2C92-48DF-9DA9-1C3DA60D257D} = {5EA7A0B3-94A2-40D9-B017-689721ED74F0}
+		{2D327D1E-236A-4C8E-B95E-20D0A543C971} = {5EA7A0B3-94A2-40D9-B017-689721ED74F0}
+		{C4BF73B9-80E2-47C0-BE0C-65385FC41B54} = {5EA7A0B3-94A2-40D9-B017-689721ED74F0}
 	EndGlobalSection
 EndGlobal

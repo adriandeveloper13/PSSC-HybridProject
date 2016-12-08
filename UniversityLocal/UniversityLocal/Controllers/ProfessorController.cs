@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using University.Models;
+using University.Models.Deanship;
+using University.Models.SchoolSubject;
 
 namespace UniversityLocal.Controllers
 {
@@ -31,17 +33,17 @@ namespace UniversityLocal.Controllers
             return null;
         }
 
-        public virtual async Task<T> SetGradeForStudentActivity()
+        public virtual async Task<Deanship> SetGradeForStudentActivity()
         {
             return null;
         }
 
-        public virtual async Task<T> SetLaboratoryPresenceLevel(List<Student> students )
+        public virtual async Task<Deanship> SetLaboratoryPresenceLevel(List<Student> students )
         {
             return null;
         }
 
-        public virtual async Task<T> SetPercentOfStudentActivityForFinalAverageGrades(List<Student> students)
+        public virtual async Task<Deanship> SetPercentOfStudentActivityForFinalAverageGrades(List<Student> students)
         {
             return null;
         }

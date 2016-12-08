@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using University.Models;
+using University.Models.SchoolSubject;
 
 namespace UniversityLocal.Controllers
 {
@@ -43,8 +44,9 @@ namespace UniversityLocal.Controllers
             }
             catch
             {
-                return View();
+                
             }
+            return View();
         }
 
         // GET: Student/Edit/5

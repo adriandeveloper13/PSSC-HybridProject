@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace University.Generic.Enums
 {
-    public enum SchoolSubjectState
+    public enum EvaluationType
     {
         ExamSchoolSubject,
         DistributedSchoolSubject

@@ -10,11 +10,6 @@ namespace University.Models
     public class Professor
     {
         public PlainText Name { get; internal set; }
-        public List<SchoolSubject> SchoolSubjects
-        {
-            get;
-            internal set;
-        } 
 
         public Professor(PlainText name)
         {

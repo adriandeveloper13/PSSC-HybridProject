@@ -4,7 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using University.Generic;
 using University.Models;
+using University.Models.SchoolSubject;
 
 namespace UniversityLocal.Controllers
 {
@@ -95,17 +97,7 @@ namespace UniversityLocal.Controllers
             return null;
         }
 
-        public virtual async Task<SchoolSubjectStudentAssignments> AssignSchoolSubjectToStudent()
-        {
-            return null;
-        }
-
-        public virtual async Task<SchoolSubjectStudentAssignments> CalculateAverageOfGradesForAStudentSchoolSubject()
-        {
-            return null;
-        }
-
-        public virtual async Task<T> GenerateGradeRaport()
+        public virtual async Task<Grade> GenerateGradeRaport()
         {
 
             return null;
