@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversityLocal", "UniversityLocal\UniversityLocal.csproj", "{4E302A6D-6FDC-4CE6-A898-E1FBB3F786D5}"
 EndProject
@@ -9,11 +9,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Models", "Models", "{5EA7A0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "University.Models", "University.Models\University.Models.csproj", "{5AAFC24D-E474-4B77-B230-460F3F106B94}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "University.Generic", "University.Generic\University.Generic.csproj", "{FC59A4A2-2C92-48DF-9DA9-1C3DA60D257D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "University.SharedKernel", "University.Generic\University.SharedKernel.csproj", "{FC59A4A2-2C92-48DF-9DA9-1C3DA60D257D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "University.Models.SchoolSubject", "University.Models.SchoolSubject\University.Models.SchoolSubject.csproj", "{2D327D1E-236A-4C8E-B95E-20D0A543C971}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "University.Models.Deanship", "University.Models.Deanship\University.Models.Deanship.csproj", "{C4BF73B9-80E2-47C0-BE0C-65385FC41B54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Base", "Base\Base.csproj", "{B3AC08C4-1A4C-4180-B8A9-76A76E21ED61}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{A2C4C09D-B830-4205-A9F8-CB3AB3756C88}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Commands", "Commands", "{35589873-DD19-456E-8119-11B3BE33AED4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Commands", "Commands\Commands.csproj", "{88093167-6D4D-483C-99FD-9A0E2F27E90E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,14 +49,25 @@ Global
 		{C4BF73B9-80E2-47C0-BE0C-65385FC41B54}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4BF73B9-80E2-47C0-BE0C-65385FC41B54}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4BF73B9-80E2-47C0-BE0C-65385FC41B54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3AC08C4-1A4C-4180-B8A9-76A76E21ED61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3AC08C4-1A4C-4180-B8A9-76A76E21ED61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3AC08C4-1A4C-4180-B8A9-76A76E21ED61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3AC08C4-1A4C-4180-B8A9-76A76E21ED61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88093167-6D4D-483C-99FD-9A0E2F27E90E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88093167-6D4D-483C-99FD-9A0E2F27E90E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88093167-6D4D-483C-99FD-9A0E2F27E90E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88093167-6D4D-483C-99FD-9A0E2F27E90E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{4E302A6D-6FDC-4CE6-A898-E1FBB3F786D5} = {A2C4C09D-B830-4205-A9F8-CB3AB3756C88}
 		{5AAFC24D-E474-4B77-B230-460F3F106B94} = {5EA7A0B3-94A2-40D9-B017-689721ED74F0}
 		{FC59A4A2-2C92-48DF-9DA9-1C3DA60D257D} = {5EA7A0B3-94A2-40D9-B017-689721ED74F0}
 		{2D327D1E-236A-4C8E-B95E-20D0A543C971} = {5EA7A0B3-94A2-40D9-B017-689721ED74F0}
 		{C4BF73B9-80E2-47C0-BE0C-65385FC41B54} = {5EA7A0B3-94A2-40D9-B017-689721ED74F0}
+		{B3AC08C4-1A4C-4180-B8A9-76A76E21ED61} = {5EA7A0B3-94A2-40D9-B017-689721ED74F0}
+		{88093167-6D4D-483C-99FD-9A0E2F27E90E} = {35589873-DD19-456E-8119-11B3BE33AED4}
 	EndGlobalSection
 EndGlobal

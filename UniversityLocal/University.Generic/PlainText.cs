@@ -8,7 +8,7 @@ using Modele.Generic.Exceptions;
 
 namespace University.Generic
 {
-    public class PlainText
+    public class PlainText: ValueObject<PlainText>
     {
         private string _text;
         public string Text { get { return _text; } }

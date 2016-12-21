@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Base;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ using University.Generic.Exceptions;
 
 namespace University.Models.Deanship
 {
-   public  class Faculty
+   public  class Faculty: EValueObject<Faculty>
     {
         public UniqueIdentifier Id { get; internal set; }
         public PlainText Name { get; internal set; }

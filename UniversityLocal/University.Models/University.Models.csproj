@@ -44,9 +44,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\University.Generic\University.Generic.csproj">
+    <ProjectReference Include="..\Base\Base.csproj">
+      <Project>{b3ac08c4-1a4c-4180-b8a9-76a76e21ed61}</Project>
+      <Name>Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\University.Generic\University.SharedKernel.csproj">
       <Project>{fc59a4a2-2c92-48df-9da9-1c3da60d257d}</Project>
-      <Name>University.Generic</Name>
+      <Name>University.SharedKernel</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

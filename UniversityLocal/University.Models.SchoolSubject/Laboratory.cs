@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Base;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Linq;
@@ -9,7 +10,7 @@ using University.Generic.Exceptions;
 
 namespace University.Models.SchoolSubject
 {
-    public class Laboratory
+    public class Laboratory : ValueObject<Laboratory>
     {
         public UniqueIdentifier Id { get; internal set; }
         public PlainText Name { get; internal set; }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Base;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Linq;
@@ -8,7 +9,8 @@ using University.Generic;
 
 namespace University.Models.SchoolSubject
 {
-    public class Student
+    //Entity
+    public class Student : ValueObject<Student>
     {
         public RegistrationNumber RegistrationNumber { get; internal set; }
         public PlainText Name { get; internal set; }

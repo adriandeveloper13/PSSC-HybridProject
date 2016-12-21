@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace University.Generic
 {
-    public class Grade
+    public class Grade : ValueObject<Grade>
     {
         private decimal _value;
 

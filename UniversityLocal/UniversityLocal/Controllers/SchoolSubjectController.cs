@@ -10,7 +10,7 @@ using University.Models.SchoolSubject;
 
 namespace UniversityLocal.Controllers
 {
-    public class ProfessorController : Controller
+    public class SchoolSubject : Controller
     {
         // GET: Professor
         public ActionResult Index()
@@ -20,14 +20,6 @@ namespace UniversityLocal.Controllers
 
         public virtual async Task<SchoolSubject> GetSchoolSubjectsById()
         {
-            //createStudentCommand
-            //pt fiecare actiune o comanda
-            //o lista de comenzi
-            //bag comanda in lista 
-            //odata ce handlerul a luat o comanda o scot din lista 
-            //din handler
-            //event pe lista cand 
-            //conceptul de bus  
             return null;
         }
 

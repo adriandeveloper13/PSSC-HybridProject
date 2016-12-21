@@ -1,13 +1,16 @@
-﻿using System;
+﻿  using Base;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using University.Generic;
 using University.Generic.Enums;
+using University.Generic.Exceptions;
 
 namespace University.Models.SchoolSubject
 {
-    public class SchoolSubject
+    public class SchoolSubject : ValueObject<SchoolSubject>
     {
+        public UniqueIdentifier Id { get; internal set; }
         public PlainText Name { get; internal set; }
         public Proportion ExamProportion { get; internal set; }
 

@@ -8,7 +8,7 @@ using Modele.Generic.Exceptions;
 
 namespace University.Generic
 {
-    public class RegistrationNumber
+    public class RegistrationNumber: ValueObject<RegistrationNumber>
     {
         private string _number;
         public string Number { get { return _number; } }

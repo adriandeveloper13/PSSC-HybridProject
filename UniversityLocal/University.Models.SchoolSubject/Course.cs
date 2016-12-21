@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Base;
+using System;
 using System.Diagnostics.Contracts;
 using University.Generic;
 using University.Generic.Exceptions;
 
 namespace University.Models.SchoolSubject
 {
-    public class Course
+    public class Course : ValueObject<Course>
     {
         public UniqueIdentifier Id { get; internal set; }
         public PlainText Name { get; internal set; }

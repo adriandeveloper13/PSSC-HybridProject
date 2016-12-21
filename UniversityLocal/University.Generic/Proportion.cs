@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace University.Generic
 {
-    public class Proportion
+    public class Proportion: ValueObject<Proportion>
     {
 
         private int _numerator;

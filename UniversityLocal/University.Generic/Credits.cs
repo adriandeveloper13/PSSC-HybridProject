@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace University.Generic
 {
-    public class Credits
+    public class Credits: ValueObject<Credits>
     {
 
         private const int _maxCredits = 60;

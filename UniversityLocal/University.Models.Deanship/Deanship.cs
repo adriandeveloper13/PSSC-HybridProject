@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Base;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -10,13 +11,26 @@ using University.Models.SchoolSubject;
 
 namespace University.Models.Deanship
 {
-    public class Deanship
+    public class Deanship : Entity<Guid> //TODO : here I must to replace the Entity<Guid> with a base class like ValueObject (for the moment the value object does not accept Collection properties)
     {
-        public PlainText Name { get;internal set; }
-        public Uri Website { get; internal set; }
+        public Guid DeanshipId { get; private set; }
+        public PlainText Name { get; private set; }
+        public Uri Website { get; private set; }
 
         private List<SchoolSubject.SchoolSubject> _definedSchoolSubjects;
-        private List<Professor> _definedProfessors; 
+        private List<Professor> _definedProfessors;
+
+        public Deanship(Guid Id, PlainText name, Uri website) : base(Id)
+        {
+            this.Name = name;
+            this.Website = website;
+        }
+
+        public Deanship(Guid Id, PlainText name, Uri website, List<SchoolSubject.SchoolSubject> definedSchoolSubjects, List<Professor> definedProfessors) : this(Id, name, website)
+        {
+            _definedSchoolSubjects = definedSchoolSubjects;
+            _definedProfessors = definedProfessors;
+        }
 
         public ReadOnlyCollection<SchoolSubject.SchoolSubject> SchoolSubjects
         {
@@ -27,18 +41,6 @@ namespace University.Models.Deanship
         public ReadOnlyCollection<Professor> Professors
         {
             get { return _definedProfessors.AsReadOnly(); }
-        }
-
-        public Deanship(PlainText name, Uri website)
-        {
-            this.Name = name;
-            this.Website = website;
-        }
-
-        public Deanship(PlainText name,Uri website, List<SchoolSubject.SchoolSubject> definedSchoolSubjects, List<Professor> definedProfessors):this(name, website)
-        {
-            _definedSchoolSubjects = definedSchoolSubjects;
-            _definedProfessors = definedProfessors;
         }
 
         public void DefinedSchoolSubject(PlainText name, Proportion examProportion, Credits credits,
