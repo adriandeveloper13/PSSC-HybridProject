@@ -211,7 +211,6 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="StudentHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -299,13 +298,17 @@
       <Project>{C4BF73B9-80E2-47C0-BE0C-65385FC41B54}</Project>
       <Name>University.Models.Deanship</Name>
     </ProjectReference>
-    <ProjectReference Include="..\University.Models.SchoolSubject\University.Models.SchoolSubject.csproj">
+    <ProjectReference Include="..\University.Models.SchoolSubject\University.Models.StudyYear.csproj">
       <Project>{2D327D1E-236A-4C8E-B95E-20D0A543C971}</Project>
-      <Name>University.Models.SchoolSubject</Name>
+      <Name>University.Models.StudyYear</Name>
     </ProjectReference>
     <ProjectReference Include="..\University.Models\University.Models.csproj">
       <Project>{5aafc24d-e474-4b77-b230-460f3f106b94}</Project>
       <Name>University.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\University.Services\University.Services.csproj">
+      <Project>{4de7da9d-a530-4cf6-9988-06a16682a329}</Project>
+      <Name>University.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

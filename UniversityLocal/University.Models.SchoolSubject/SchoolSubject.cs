@@ -1,12 +1,11 @@
-﻿  using Base;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using University.Generic;
 using University.Generic.Enums;
 using University.Generic.Exceptions;
 
-namespace University.Models.SchoolSubject
+namespace University.Models.StudyYear
 {
     public class SchoolSubject : ValueObject<SchoolSubject>
     {
@@ -20,7 +19,7 @@ namespace University.Models.SchoolSubject
         public List<Course> Courses { get; internal set; } 
         public List<Laboratory> Laboratories { get; internal set; } 
 
-        public Professor SchoolSubjectProfessor { get; internal set; }
+        public Guid SchoolSubjectProfessorId { get; internal set; }
 
         private List<Student> _registeredStudents;
         public ReadOnlyCollection<Student> RegisteredStudents { get { return _registeredStudents.AsReadOnly(); } }
@@ -44,11 +43,11 @@ namespace University.Models.SchoolSubject
             _registeredStudents = registeredStudents;
         }
 
-        public SchoolSubject(PlainText name, Proportion examProportion, Credits credits, EvaluationType evaluationType, List<Student> registeredStudents, Professor schoolSubjectProfessor, List<Laboratory> laboratories, List<Course> courses)
+        public SchoolSubject(PlainText name, Proportion examProportion, Credits credits, EvaluationType evaluationType, List<Student> registeredStudents, Guid schoolSubjectProfessorId, List<Laboratory> laboratories, List<Course> courses)
             : this(name, examProportion, credits, evaluationType, registeredStudents, laboratories, courses)
         {
             ExamProportion = examProportion;
-            SchoolSubjectProfessor = schoolSubjectProfessor;
+            SchoolSubjectProfessorId = schoolSubjectProfessorId;
         }
     }
 }

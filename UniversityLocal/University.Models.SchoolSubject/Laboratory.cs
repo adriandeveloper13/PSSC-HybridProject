@@ -1,14 +1,9 @@
-﻿using Base;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Diagnostics.Contracts;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using University.Generic;
 using University.Generic.Exceptions;
 
-namespace University.Models.SchoolSubject
+namespace University.Models.StudyYear
 {
     public class Laboratory : ValueObject<Laboratory>
     {

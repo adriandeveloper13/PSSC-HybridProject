@@ -2,21 +2,24 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
+using University.DataLayer.Interfaces;
 using University.Generic;
 using University.Generic.Exceptions;
 
 namespace University.Models
 {
-    public class Professor : ValueObject<Professor>
+    public class Teacher : ValueObject<Teacher>, IAggregationRoot
     {
         public UniqueIdentifier Id { get; internal set; }
         public PlainText Name { get; internal set; }
 
-        public Professor(PlainText name)
+        public Teacher(UniqueIdentifier Id,PlainText name)
         {
-            Name = name;
+            this.Name = name;
+            this.Id = Id;
         }
     }
 }

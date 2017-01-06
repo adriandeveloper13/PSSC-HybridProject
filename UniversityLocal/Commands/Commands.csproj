@@ -46,6 +46,12 @@
     <Compile Include="CreateStudentCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\University.Common\University.Common.csproj">
+      <Project>{EE0EE128-66BF-45D0-B282-BEE06C1B2092}</Project>
+      <Name>University.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

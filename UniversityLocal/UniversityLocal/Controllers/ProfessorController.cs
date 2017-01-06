@@ -6,13 +6,13 @@ using System.Web;
 using System.Web.Mvc;
 using University.Models;
 using University.Models.Deanship;
-using University.Models.SchoolSubject;
+using University.Models.StudyYear;
 
 namespace UniversityLocal.Controllers
 {
     public class ProfessorController : Controller
     {
-        // GET: Professor
+        // GET: Teacher
         public ActionResult Index()
         {
             return View();
@@ -26,7 +26,7 @@ namespace UniversityLocal.Controllers
             //bag comanda in lista 
             //odata ce handlerul a luat o comanda o scot din lista 
             //din handler
-            //event pe lista cand 
+            //event pe lista (cand scot sau bag comenzi)
             //conceptul de bus  
             return null;
         }
@@ -58,19 +58,19 @@ namespace UniversityLocal.Controllers
 
 
 
-        // GET: Professor/Details/5
+        // GET: Teacher/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: Professor/Create
+        // GET: Teacher/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Professor/Create
+        // POST: Teacher/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -86,13 +86,13 @@ namespace UniversityLocal.Controllers
             }
         }
 
-        // GET: Professor/Edit/5
+        // GET: Teacher/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Professor/Edit/5
+        // POST: Teacher/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -108,13 +108,13 @@ namespace UniversityLocal.Controllers
             }
         }
 
-        // GET: Professor/Delete/5
+        // GET: Teacher/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Professor/Delete/5
+        // POST: Teacher/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

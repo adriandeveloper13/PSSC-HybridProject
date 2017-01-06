@@ -5,19 +5,26 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using University.Models;
-using University.Models.SchoolSubject;
+using University.Models.StudyYear;
+using University.Services;
 
 namespace UniversityLocal.Controllers
 {
     public class StudentController : Controller
     {
+        private readonly StudentService _service = new StudentService();
+
         // GET: Student
         public ActionResult Index()
         {
             return View();
         }
 
-
+        public void AddStudent()
+        {
+            var student = new Student(new Guid(), "John", 60)
+            _service.AddStudent(student);
+        }
         public virtual async Task<SchoolSubject> ListSchoolSubjectGrades()
         {
             return null;

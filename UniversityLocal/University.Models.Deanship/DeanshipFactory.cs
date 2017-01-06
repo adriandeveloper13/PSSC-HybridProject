@@ -5,11 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Modele.Generic.Exceptions;
+using University.DataLayer.Interfaces;
 using University.Generic;
 
 namespace University.Models.Deanship
 {
-    public class DeanshipFactory
+    public class DeanshipFactory : IAggregationRoot
     {
         public static readonly DeanshipFactory Instance = new DeanshipFactory();
 

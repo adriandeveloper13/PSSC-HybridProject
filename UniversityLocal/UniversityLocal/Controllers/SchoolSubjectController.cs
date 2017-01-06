@@ -6,13 +6,13 @@ using System.Web;
 using System.Web.Mvc;
 using University.Models;
 using University.Models.Deanship;
-using University.Models.SchoolSubject;
+using University.Models.StudyYear;
 
 namespace UniversityLocal.Controllers
 {
     public class SchoolSubject : Controller
     {
-        // GET: Professor
+        // GET: Teacher
         public ActionResult Index()
         {
             return View();
@@ -50,19 +50,19 @@ namespace UniversityLocal.Controllers
 
 
 
-        // GET: Professor/Details/5
+        // GET: Teacher/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: Professor/Create
+        // GET: Teacher/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Professor/Create
+        // POST: Teacher/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -78,13 +78,13 @@ namespace UniversityLocal.Controllers
             }
         }
 
-        // GET: Professor/Edit/5
+        // GET: Teacher/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Professor/Edit/5
+        // POST: Teacher/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -100,13 +100,13 @@ namespace UniversityLocal.Controllers
             }
         }
 
-        // GET: Professor/Delete/5
+        // GET: Teacher/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Professor/Delete/5
+        // POST: Teacher/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using University.Common;
 
-namespace Commands
+namespace LoggingService
 {
-    public class CreateStudentCommand :  Command
+    public class Class1
     {
     }
 }

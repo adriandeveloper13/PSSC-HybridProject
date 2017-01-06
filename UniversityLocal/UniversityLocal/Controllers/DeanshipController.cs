@@ -6,7 +6,6 @@ using System.Web;
 using System.Web.Mvc;
 using University.Generic;
 using University.Models;
-using University.Models.SchoolSubject;
 
 namespace UniversityLocal.Controllers
 {
@@ -66,6 +65,12 @@ namespace UniversityLocal.Controllers
             {
                 return View();
             }
+        }
+
+        [HttpGet]
+        public ActionResult GetAllStudents()
+        {
+            
         }
 
         // GET: Deanship/Delete/5

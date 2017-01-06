@@ -1,10 +1,8 @@
-﻿using Base;
-using System;
-using System.Diagnostics.Contracts;
+﻿using System;
 using University.Generic;
 using University.Generic.Exceptions;
 
-namespace University.Models.SchoolSubject
+namespace University.Models.StudyYear
 {
     public class Course : ValueObject<Course>
     {

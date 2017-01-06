@@ -2,16 +2,18 @@
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using Modele.Generic.Exceptions;
+using University.DataLayer.Interfaces;
 using University.Generic;
 using University.Generic.Enums;
+using University.Generic.Exceptions;
 
-namespace University.Models.SchoolSubject
+namespace University.Models.StudyYear
 {
-    public class SchoolSubjectFactory
+    public class StudyYearFactory : IAggregationRoot
     {
-        public static readonly SchoolSubjectFactory Instance = new SchoolSubjectFactory();
+        public static readonly StudyYearFactory Instance = new StudyYearFactory();
 
-        private SchoolSubjectFactory()
+        private StudyYearFactory()
         { }
 
         public SchoolSubject CreateSchoolSubject(string name, int[] proportion, List<Laboratory> laboratories, List<Course> courses )
@@ -31,10 +33,10 @@ namespace University.Models.SchoolSubject
             return schoolSubject;
         }
 
-        internal Student CreateStudent(string registrationNumber , string name)
+        internal Student CreateStudent(Guid registrationNumber , string name)
         {
             return new Student(
-                new RegistrationNumber(registrationNumber),
+                new UniqueIdentifier(registrationNumber),
                 new PlainText(name));
         }
     }

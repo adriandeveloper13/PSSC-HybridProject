@@ -9,7 +9,7 @@ using University.Generic.Exceptions;
 
 namespace University.Models.Deanship
 {
-   public  class Faculty: EValueObject<Faculty>
+   public  class Faculty: ValueObject<Faculty>
     {
         public UniqueIdentifier Id { get; internal set; }
         public PlainText Name { get; internal set; }

@@ -9,13 +9,13 @@ using University.Generic.Exceptions;
 
 namespace University.Models.Deanship
 {
-    public class Specialization: ValueObject<Specialization>
+    public class Major: ValueObject<Major>
     {
         public UniqueIdentifier Id { get; internal set; }
         public PlainText Name { get; internal set; }
         public Uri SpecializationWebsite { get; internal set; }
 
-        internal Specialization(UniqueIdentifier id, PlainText name, Uri spcializationWebsite)
+        internal Major(UniqueIdentifier id, PlainText name, Uri spcializationWebsite)
         {
             Id = id;
             Name = name;
@@ -26,7 +26,7 @@ namespace University.Models.Deanship
 
         public override bool Equals(object obj)
         {
-            var specialization = (Specialization) obj;
+            var specialization = (Major) obj;
             if (specialization != null)
             {
                 return Name.Equals(specialization.Name);
