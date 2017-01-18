@@ -4,13 +4,15 @@ using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DbQueryExecutors;
+using Interfaces.Queries;
 using Modele.Generic.Exceptions;
-using University.DataLayer.Interfaces;
 using University.Generic;
+using University.Generic.Exceptions;
 
 namespace University.Models.Deanship
 {
-    public class DeanshipFactory : IAggregationRoot
+    public class DeanshipFactory : IQueryResult
     {
         public static readonly DeanshipFactory Instance = new DeanshipFactory();
 
@@ -20,9 +22,29 @@ namespace University.Models.Deanship
         {
             Contract.Requires<ArgumentNullException>(name != null,"The name cannot be null !");
             Contract.Requires<ArgumentInvalidLengthException>(name.Length >= 2 && name.Length <= 50,"The name length should be between 2 and 50 characters !");
-            var deanship = new Deanship(new Guid(), new PlainText(name), (Uri)website);
+            var deanship = new Deanship(new UniqueIdentifier(new Guid()), new PlainText(name), (Uri)website);
 
             return deanship;
+        }
+
+        internal Faculty CreateFaculty(Guid id, string name, string websiteLink)
+        {
+            var faculty = new Faculty(
+                new UniqueIdentifier(id),
+                new PlainText(name),
+                new Uri(websiteLink));
+
+            return faculty;
+        }
+
+        internal Major CreateMajor(Guid id, string name, string specializationWebSite)
+        {
+            var major = new Major(
+                new UniqueIdentifier(id),
+                new PlainText(name),
+                new Uri(specializationWebSite));
+            return major;
+
         }
     }
 }

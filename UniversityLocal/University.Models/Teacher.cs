@@ -9,7 +9,7 @@ using University.DataLayer.Interfaces;
 using University.Generic;
 using University.Generic.Exceptions;
 
-namespace University.Models
+namespace University.Models.Teacher
 {
     public class Teacher : ValueObject<Teacher>, IAggregationRoot
     {

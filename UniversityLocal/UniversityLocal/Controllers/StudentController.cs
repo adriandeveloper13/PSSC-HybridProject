@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
-using University.Models;
+using Commands;
+using Interfaces.Commands;
+using Interfaces.Queries;
 using University.Models.StudyYear;
 using University.Services;
 
@@ -12,7 +11,15 @@ namespace UniversityLocal.Controllers
 {
     public class StudentController : Controller
     {
-        private readonly StudentService _service = new StudentService();
+        private readonly StudentService _service;
+        //private readonly IQueryDispatcher _queryDispatcher;
+        private readonly ICommandDispatcher _commandDispatcher;
+
+        public StudentController( ICommandDispatcher commandDispatcher/*, IQueryDispatcher queryDispatcher*/)
+        {
+            _commandDispatcher = commandDispatcher;
+            //_queryDispatcher = queryDispatcher;          
+        }
 
         // GET: Student
         public ActionResult Index()
@@ -20,11 +27,18 @@ namespace UniversityLocal.Controllers
             return View();
         }
 
-        public void AddStudent()
+        public async Task<ActionResult> AddStudent()
         {
-            var student = new Student(new Guid(), "John", 60)
-            _service.AddStudent(student);
+            var student = StudyYearFactory.Instance.CreateStudent(new Guid(), "John", 60);
+            var createStudentCommand = new CreateStudentCommand(student);
+            await _commandDispatcher.Dispatch(createStudentCommand);
+           
+           //_service.AddStudent(student);
+
+            //return student;
+            return null;
         }
+
         public virtual async Task<SchoolSubject> ListSchoolSubjectGrades()
         {
             return null;
@@ -45,14 +59,6 @@ namespace UniversityLocal.Controllers
         [HttpPost]
         public ActionResult CreateStudent(Student student)
         {
-            try
-            {
-                
-            }
-            catch
-            {
-                
-            }
             return View();
         }
 

@@ -10,9 +10,9 @@ namespace University.Services
     {
         public void ListStudents()
         {
-            var list = new StudentService().ListStudents();
+            //var list = new StudentService().ListStudents();
 
-            return list;
+            //return list;
         }
     }
 }

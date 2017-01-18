@@ -70,7 +70,7 @@ namespace UniversityLocal.Controllers
         [HttpGet]
         public ActionResult GetAllStudents()
         {
-            
+            return null;
         }
 
         // GET: Deanship/Delete/5

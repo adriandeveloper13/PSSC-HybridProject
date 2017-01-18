@@ -44,6 +44,8 @@
     <Compile Include="Laboratory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SchoolSubject.cs" />
+    <Compile Include="StudentSituation.cs" />
+    <Compile Include="StudyYear.cs" />
     <Compile Include="StudyYearFactory.cs" />
     <Compile Include="Student.cs" />
   </ItemGroup>
@@ -52,18 +54,21 @@
       <Project>{b3ac08c4-1a4c-4180-b8a9-76a76e21ed61}</Project>
       <Name>Base</Name>
     </ProjectReference>
-    <ProjectReference Include="..\University.DataLayer\University.DataLayer.csproj">
-      <Project>{05ECAD8D-50BE-4B99-A72F-D94F69D04C22}</Project>
-      <Name>University.DataLayer</Name>
+    <ProjectReference Include="..\Interfaces\Interfaces.csproj">
+      <Project>{D938F8F4-6AF2-4A2F-8404-2B34A9C1C0E7}</Project>
+      <Name>Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\University.Common\University.Common.csproj">
+      <Project>{ee0ee128-66bf-45d0-b282-bee06c1b2092}</Project>
+      <Name>University.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\University.Generic\University.SharedKernel.csproj">
       <Project>{fc59a4a2-2c92-48df-9da9-1c3da60d257d}</Project>
       <Name>University.SharedKernel</Name>
     </ProjectReference>
-    <ProjectReference Include="..\University.Models\University.Models.csproj">
-      <Project>{5AAFC24D-E474-4B77-B230-460F3F106B94}</Project>
-      <Name>University.Models</Name>
-    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

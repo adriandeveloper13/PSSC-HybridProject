@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace University.DataLayer.Interfaces
+namespace Interfaces.Queries
 {
-    public interface IAggregationRoot
+    public interface IQueryResult
     {
+        //all the viewModels will implement this
     }
 }

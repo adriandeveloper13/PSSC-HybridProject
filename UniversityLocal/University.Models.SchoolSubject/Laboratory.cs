@@ -1,21 +1,24 @@
 ﻿using System;
 using System.Diagnostics.Contracts;
+using Interfaces.Queries;
 using University.Generic;
 using University.Generic.Exceptions;
 
 namespace University.Models.StudyYear
 {
-    public class Laboratory : ValueObject<Laboratory>
+    public class Laboratory : ValueObject<Laboratory>, IQueryResult
     {
         public UniqueIdentifier Id { get; internal set; }
         public PlainText Name { get; internal set; }
 
         public Uri ContentLink { get; internal set; }
 
-        internal Laboratory(PlainText name)
+        internal Laboratory(UniqueIdentifier id, PlainText name, Uri contentLink)
         {
-            Contract.Requires(name != null, "The course name cannot be empty");
+            Contract.Requires(Id != null, "The course name cannot be empty");
+            Id = id;
             Name = name;
+            ContentLink = contentLink;
         }
 
         #region operations

@@ -40,9 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Command.cs" />
-    <Compile Include="GenericEventWrapper.cs" />
+    <Compile Include="Interfaces\IAggregationRoot.cs" />
+    <Compile Include="Interfaces\IDatabaseObjectEntity.cs" />
+    <Compile Include="Interfaces\IEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\University.Generic\University.SharedKernel.csproj">
+      <Project>{FC59A4A2-2C92-48DF-9DA9-1C3DA60D257D}</Project>
+      <Name>University.SharedKernel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

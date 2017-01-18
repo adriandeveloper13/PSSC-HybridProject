@@ -1,19 +1,17 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.Contracts;
+using Interfaces.Queries;
 using University.Generic;
 using University.Generic.Exceptions;
 
 namespace University.Models.StudyYear
 {
     //Entity
-    public class Student : ValueObject<Student>
+    public class Student : ValueObject<Student>, IQueryResult
     {
         public UniqueIdentifier RegistrationNumber { get; internal set; }
         public PlainText Name { get; internal set; }
         public Credits Credits { get; internal set; }
-        //public List<Grade> ActivityGrade { get; internal set; }
-        //public Grade ExamGrade { get; internal set; }
-        //public Grade FinalGrade { get; internal set; }
 
         public Student(UniqueIdentifier regNumber, PlainText name)
         {
@@ -21,7 +19,6 @@ namespace University.Models.StudyYear
             Contract.Requires(name != null, "The student name cannot be null !");
             RegistrationNumber = regNumber;
             Name = name;
-            //ActivityGrade = new List<Grade>();
         }
 
         public Student(UniqueIdentifier regNumber, PlainText name, Credits credits)

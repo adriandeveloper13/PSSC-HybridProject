@@ -1,10 +1,11 @@
 ﻿using System;
+using Interfaces.Queries;
 using University.Generic;
 using University.Generic.Exceptions;
 
 namespace University.Models.StudyYear
 {
-    public class Course : ValueObject<Course>
+    public class Course : ValueObject<Course>, IQueryResult
     {
         public UniqueIdentifier Id { get; internal set; }
         public PlainText Name { get; internal set; }

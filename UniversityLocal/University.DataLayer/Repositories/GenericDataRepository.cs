@@ -5,11 +5,11 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using University.DataLayer.Interfaces;
+using University.Common;
 
 namespace University.DataLayer.Repositories
 {
-    public class GenericDataRepository<T>: BaseDataRepository where T: class, IAggregationRoot, new()
+    public class GenericDataRepository<T>: BaseDataRepository where T: class, IDatabaseObjectEntity, new()
     {
         private DbSet<T> mDbSet;
         private bool mIsEntityTrackingOn;
@@ -30,7 +30,7 @@ namespace University.DataLayer.Repositories
             {
                 mIsEntityTrackingOn = value;
 
-                mQueryGenerator = mIsEntityTrackingOn ? (Func<IList<string>, IQueryable<T>>)GenerateQuery : GenerateNonTrackingQuery;
+                //mQueryGenerator = mIsEntityTrackingOn ? (Func<IList<string>, IQueryable<T>>)GenerateQuery : GenerateNonTrackingQuery;
             }
         }
 

@@ -10,14 +10,25 @@ namespace University.Generic.Exceptions
 {
     public class UniqueIdentifier
     {
-        private Guid _uniqueIdentifier;
-        public Guid UniqueId { get { return _uniqueIdentifier; } }
+        public Guid UniqueId { get; internal set; }
+        public List<Guid> UniqueIds { get; internal set; } 
 
         public UniqueIdentifier(Guid uniqueId)
         {
             Contract.Requires<ArgumentNullException>(uniqueId != null, "The unique id cannot be null !");
             Contract.Requires<ArgumentCannotBeEmptyStringException>(string.IsNullOrEmpty(uniqueId.ToString()), "The unique id cannot be empty !");
-            _uniqueIdentifier = uniqueId;
+            UniqueId = uniqueId;
+        }
+
+        public UniqueIdentifier(List<Guid> uniqueIds)
+        {
+            foreach (var uniqueId in uniqueIds)
+            {
+                Contract.Requires<ArgumentNullException>(uniqueId != null, "The unique id cannot be null !");
+                Contract.Requires<ArgumentCannotBeEmptyStringException>(string.IsNullOrEmpty(uniqueId.ToString()), "The unique id cannot be empty !");
+            }
+           
+            UniqueIds = uniqueIds;
         }
     }
     

@@ -30,8 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.5.2.0\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,17 +44,50 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandDispatcher.cs" />
     <Compile Include="CreateDeanshipCommand.cs" />
     <Compile Include="CreateProfessorCommand.cs" />
     <Compile Include="CreateSchoolSubjectCommand.cs" />
     <Compile Include="CreateStudentCommand.cs" />
+    <Compile Include="Handlers\CreateStudentCommandHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DbQueryExecutors\DbQueryExecutors.csproj">
+      <Project>{AB6B3BB2-13E1-4CD3-AB75-1354010F63C0}</Project>
+      <Name>DbQueryExecutors</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Interfaces\Interfaces.csproj">
+      <Project>{D938F8F4-6AF2-4A2F-8404-2B34A9C1C0E7}</Project>
+      <Name>Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\University.BusinessLogic\University.BusinessLogic.csproj">
+      <Project>{6927a5aa-2e93-46a7-8793-f90d8d07f8ff}</Project>
+      <Name>University.BusinessLogic</Name>
+    </ProjectReference>
     <ProjectReference Include="..\University.Common\University.Common.csproj">
       <Project>{EE0EE128-66BF-45D0-B282-BEE06C1B2092}</Project>
       <Name>University.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\University.DataLayer.Implementation\University.DataLayer.Implementation.csproj">
+      <Project>{61E8657B-CA60-4837-A1CE-F2BBABB61B05}</Project>
+      <Name>University.DataLayer.Implementation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\University.DataLayer\University.DataLayer.csproj">
+      <Project>{05ECAD8D-50BE-4B99-A72F-D94F69D04C22}</Project>
+      <Name>University.DataLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\University.Generic\University.SharedKernel.csproj">
+      <Project>{FC59A4A2-2C92-48DF-9DA9-1C3DA60D257D}</Project>
+      <Name>University.SharedKernel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\University.Models.SchoolSubject\University.Models.StudyYear.csproj">
+      <Project>{2D327D1E-236A-4C8E-B95E-20D0A543C971}</Project>
+      <Name>University.Models.StudyYear</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

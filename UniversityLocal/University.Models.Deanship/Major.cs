@@ -4,12 +4,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DbQueryExecutors;
+using Interfaces.Queries;
+using University.Common;
+using University.Common.Interfaces;
 using University.Generic;
 using University.Generic.Exceptions;
 
 namespace University.Models.Deanship
 {
-    public class Major: ValueObject<Major>
+    public class Major: ValueObject<Major>, IQueryResult, IEntity
     {
         public UniqueIdentifier Id { get; internal set; }
         public PlainText Name { get; internal set; }

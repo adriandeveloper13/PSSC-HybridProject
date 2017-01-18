@@ -2,19 +2,25 @@
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using Modele.Generic.Exceptions;
-using University.DataLayer.Interfaces;
 using University.Generic;
 using University.Generic.Enums;
 using University.Generic.Exceptions;
 
 namespace University.Models.StudyYear
 {
-    public class StudyYearFactory : IAggregationRoot
+    public class StudyYearFactory 
     {
         public static readonly StudyYearFactory Instance = new StudyYearFactory();
 
         private StudyYearFactory()
         { }
+
+        public StudyYear CreateStudyYear(int yearNumber)
+        {
+            var studyYear = new StudyYear(yearNumber);
+
+            return studyYear;
+        }
 
         public SchoolSubject CreateSchoolSubject(string name, int[] proportion, List<Laboratory> laboratories, List<Course> courses )
         {
@@ -33,11 +39,36 @@ namespace University.Models.StudyYear
             return schoolSubject;
         }
 
-        internal Student CreateStudent(Guid registrationNumber , string name)
+        public Student CreateStudent(Guid registrationNumber , string name, int credits)
         {
-            return new Student(
+            var student =  new Student(
                 new UniqueIdentifier(registrationNumber),
-                new PlainText(name));
+                new PlainText(name),
+                new Credits(credits));
+
+            return student;
         }
+
+        internal Course CreateCourse(Guid id, string name, string contentLink)
+        {
+            var course = new Course( 
+                new UniqueIdentifier(id),
+                new PlainText(name),
+                new Uri(contentLink));
+
+            return course;
+        }
+
+        internal Laboratory CreateLaboratory(Guid id, string name, string contentLink)
+        {
+            var laboratory = new Laboratory(
+                new UniqueIdentifier(id),
+                new PlainText(name),
+                new Uri(contentLink));
+
+            return laboratory;
+        }
+
+
     }
 }

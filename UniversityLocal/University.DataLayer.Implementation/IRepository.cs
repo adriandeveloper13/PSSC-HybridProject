@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace University.Common
+namespace University.DataLayer.Implementation
 {
-    public class Command
+    public interface IRepository
     {
     }
 }

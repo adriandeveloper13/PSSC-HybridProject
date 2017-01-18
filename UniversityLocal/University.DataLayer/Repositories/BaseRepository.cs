@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using University.DataLayer.Interfaces;
+using University.Common;
 
 namespace University.DataLayer.Repositories
 {
-    public abstract class BaseRepository<T> : GenericDataRepository<T> where T: class, IAggregationRoot, new()
+    public abstract class BaseRepository<T> : GenericDataRepository<T> where T: class, IDatabaseObjectEntity, new()
     {
         #region public methods
 
