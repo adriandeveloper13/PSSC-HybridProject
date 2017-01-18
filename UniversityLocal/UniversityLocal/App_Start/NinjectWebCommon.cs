@@ -53,8 +53,8 @@ namespace UniversityLocal.App_Start
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
 
-                //kernel.Bind<IQueryDispatcher>().To<QueryDispatcher>();
-                //kernel.Bind<ICommandDispatcher>().To<CommandDispatcher>();
+                kernel.Bind<IQueryDispatcher>().To<QueryDispatcher>();
+                kernel.Bind<ICommandDispatcher>().To<CommandDispatcher>();
 
                 RegisterServices(kernel);
                 return kernel;

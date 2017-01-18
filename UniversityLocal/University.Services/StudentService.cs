@@ -7,8 +7,6 @@ using System.Threading.Tasks;
 using System.Web.Script.Serialization;
 using AutoMapper;
 using Commands;
-using Commands.App_Start;
-using University.Common;
 using University.Models.StudyYear;
 
 namespace University.Services

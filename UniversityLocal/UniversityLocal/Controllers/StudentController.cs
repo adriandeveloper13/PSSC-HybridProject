@@ -12,13 +12,13 @@ namespace UniversityLocal.Controllers
     public class StudentController : Controller
     {
         private readonly StudentService _service;
-        //private readonly IQueryDispatcher _queryDispatcher;
+        private readonly IQueryDispatcher _queryDispatcher;
         private readonly ICommandDispatcher _commandDispatcher;
 
-        public StudentController( ICommandDispatcher commandDispatcher/*, IQueryDispatcher queryDispatcher*/)
+        public StudentController( ICommandDispatcher commandDispatcher, IQueryDispatcher queryDispatcher)
         {
             _commandDispatcher = commandDispatcher;
-            //_queryDispatcher = queryDispatcher;          
+            _queryDispatcher = queryDispatcher;          
         }
 
         // GET: Student
