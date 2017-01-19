@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using AutoMapper;
 using Interfaces.Commands;
 using University.DataLayer;
@@ -22,10 +23,35 @@ namespace Commands.Handlers
             //commandDispatcher.dispatch()
             if (command != null)
             {
-                var studentRepository = new StudentRepository();
-                var modelCommand = Mapper.Instance.Map<Students>(typeof (Student));
-                
-                var student = await studentRepository.CreateAsync(modelCommand);
+
+                try
+                {
+                    //unmapped members were found
+                    //Mapper.Initialize(cfg =>
+                    //{
+                    //    cfg.CreateMap<Student, Students>();
+                    //});
+
+                    //Missing type map configuration or unsupported mapping.
+                    Mapper.Initialize(cfg =>
+                            {
+                                cfg.CreateMap<Student, Students>().ForMember(dbUsr => dbUsr.Id, vmUsr => vmUsr.MapFrom(vm => vm.RegistrationNumber.UniqueId))
+                                .ForMember(dbUsr => dbUsr.Name, vmUsr => vmUsr.MapFrom(vm => vm.Name.Text))
+                                .ForMember(dbUsr => dbUsr.Credits, vmUsr => vmUsr.MapFrom(vm => vm.Credits._credits));
+                            });
+
+                    Mapper.Configuration.AssertConfigurationIsValid();
+
+                    var studentRepository = new StudentRepository();
+                    var modelCommand = Mapper.Map<CreateStudentCommand, Students>(command);// Mapper.Map<Students>(typeof (Student));
+
+                    var student = await studentRepository.CreateAsync(modelCommand);
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
             }
 
             return null;

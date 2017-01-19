@@ -51,8 +51,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaces", "Interfaces\In
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "University.BusinessLogic", "University.BusinessLogic\University.BusinessLogic.csproj", "{6927A5AA-2E93-46A7-8793-F90D8D07F8FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Executors", "Executors\Executors.csproj", "{32FC5A44-CD69-4D80-A274-AFAE47E53C7D}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -123,10 +121,6 @@ Global
 		{6927A5AA-2E93-46A7-8793-F90D8D07F8FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6927A5AA-2E93-46A7-8793-F90D8D07F8FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6927A5AA-2E93-46A7-8793-F90D8D07F8FF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{32FC5A44-CD69-4D80-A274-AFAE47E53C7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{32FC5A44-CD69-4D80-A274-AFAE47E53C7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{32FC5A44-CD69-4D80-A274-AFAE47E53C7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{32FC5A44-CD69-4D80-A274-AFAE47E53C7D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -148,6 +142,5 @@ Global
 		{AB6B3BB2-13E1-4CD3-AB75-1354010F63C0} = {35589873-DD19-456E-8119-11B3BE33AED4}
 		{D938F8F4-6AF2-4A2F-8404-2B34A9C1C0E7} = {35589873-DD19-456E-8119-11B3BE33AED4}
 		{6927A5AA-2E93-46A7-8793-F90D8D07F8FF} = {D954BF58-BD33-4524-93AB-A9B9A78F58C7}
-		{32FC5A44-CD69-4D80-A274-AFAE47E53C7D} = {35589873-DD19-456E-8119-11B3BE33AED4}
 	EndGlobalSection
 EndGlobal

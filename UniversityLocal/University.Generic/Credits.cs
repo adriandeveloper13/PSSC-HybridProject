@@ -12,8 +12,8 @@ namespace University.Generic
         private const int _maxCredits = 60;
         public static int MAX { get { return _maxCredits; } }
 
-        private int _credits;
-        public int Count { get { return _credits; } set { _credits = value; } }
+        public Nullable<int> _credits;
+        public int Count { get { return (int) _credits; } set { _credits = value; } }
 
         public Credits()
         {
