@@ -14,7 +14,7 @@ namespace University.DataLayer
     using System;
     using System.Collections.Generic;
     
-    public partial class Deanships : IAggregationRoot, IDatabaseObjectEntity
+    public partial class Deanships : IDatabaseObjectEntity
     {
         public System.Guid Id { get; set; }
         public string Name { get; set; }

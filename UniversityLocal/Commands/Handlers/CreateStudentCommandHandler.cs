@@ -8,7 +8,7 @@ using University.Models.StudyYear;
 
 namespace Commands.Handlers
 {
-    public class CreateStudentCommandHandler: ICommandHandler<CreateStudentCommand>
+    public class CreateStudentCommandHandler : ICommandHandler<CreateStudentCommand>
     {
         //The dispatcher takes a command and relies on dependency injection to find a handler for this command, 
         //in this case, it will match the CreateStudentCommand with CreateStudentCommandHandler
@@ -23,19 +23,13 @@ namespace Commands.Handlers
             //commandDispatcher.dispatch()
             if (command != null)
             {
-
                 try
                 {
-                    //unmapped members were found
-                    //Mapper.Initialize(cfg =>
-                    //{
-                    //    cfg.CreateMap<Student, Students>();
-                    //});
-
-                    //Missing type map configuration or unsupported mapping.
                     Mapper.Initialize(cfg =>
                             {
-                                cfg.CreateMap<Student, Students>().ForMember(dbUsr => dbUsr.Id, vmUsr => vmUsr.MapFrom(vm => vm.RegistrationNumber.UniqueId))
+                                cfg.CreateMap<CreateStudentCommand, Students>()
+                                //.DisableCtorValidation()
+                                .ForMember(dbUsr => dbUsr.Id, vmUsr => vmUsr.MapFrom(vm => vm.RegistrationNumber))
                                 .ForMember(dbUsr => dbUsr.Name, vmUsr => vmUsr.MapFrom(vm => vm.Name.Text))
                                 .ForMember(dbUsr => dbUsr.Credits, vmUsr => vmUsr.MapFrom(vm => vm.Credits._credits));
                             });
@@ -43,7 +37,7 @@ namespace Commands.Handlers
                     Mapper.Configuration.AssertConfigurationIsValid();
 
                     var studentRepository = new StudentRepository();
-                    var modelCommand = Mapper.Map<CreateStudentCommand, Students>(command);// Mapper.Map<Students>(typeof (Student));
+                    var modelCommand = Mapper.Map<CreateStudentCommand, Students>(command);
 
                     var student = await studentRepository.CreateAsync(modelCommand);
                 }

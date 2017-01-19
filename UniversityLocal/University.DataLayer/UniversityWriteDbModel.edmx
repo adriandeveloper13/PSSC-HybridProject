@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="UNIVERSITYModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="UNIVERSITYModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <!--Errors Found During Generation:
 warning 6002: The table/view 'UNIVERSITY.dbo.Courses' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Courses">
@@ -79,12 +79,9 @@ warning 6002: The table/view 'UNIVERSITY.dbo.SchoolSubjects' does not have a pri
           <Property Name="Credits" Type="int" Nullable="false" />
           <Property Name="EvaluationType" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'UNIVERSITY.dbo.Students' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Students">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="Name" />
           </Key>
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
@@ -101,6 +98,7 @@ warning 6002: The table/view 'UNIVERSITY.dbo.Teachers' does not have a primary k
           <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityContainer Name="UNIVERSITYModelStoreContainer">
+          <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Courses" EntityType="Self.Courses" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [Courses].[Id] AS [Id], 
@@ -145,13 +143,6 @@ warning 6002: The table/view 'UNIVERSITY.dbo.Teachers' does not have a primary k
     [SchoolSubjects].[EvaluationType] AS [EvaluationType]
     FROM [dbo].[SchoolSubjects] AS [SchoolSubjects]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="Students" EntityType="Self.Students" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Students].[Id] AS [Id], 
-    [Students].[Name] AS [Name], 
-    [Students].[Credits] AS [Credits]
-    FROM [dbo].[Students] AS [Students]</DefiningQuery>
-          </EntitySet>
           <EntitySet Name="Teachers" EntityType="Self.Teachers" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [Teachers].[Id] AS [Id], 
@@ -159,18 +150,27 @@ warning 6002: The table/view 'UNIVERSITY.dbo.Teachers' does not have a primary k
     FROM [dbo].[Teachers] AS [Teachers]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="UNIVERSITYModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Courses" EntityType="UNIVERSITYModel.Courses" />
+          <EntitySet Name="Deanships" EntityType="UNIVERSITYModel.Deanships" />
+          <EntitySet Name="Faculties" EntityType="UNIVERSITYModel.Faculties" />
+          <EntitySet Name="Laboratories" EntityType="UNIVERSITYModel.Laboratories" />
+          <EntitySet Name="Majors" EntityType="UNIVERSITYModel.Majors" />
+          <EntitySet Name="SchoolSubjects" EntityType="UNIVERSITYModel.SchoolSubjects" />
+          <EntitySet Name="Teachers" EntityType="UNIVERSITYModel.Teachers" />
+          <EntitySet Name="Students" EntityType="UNIVERSITYModel.Students" />
+        </EntityContainer>
         <EntityType Name="Courses">
           <Key>
             <PropertyRef Name="Id" />
             <PropertyRef Name="Name" />
           </Key>
           <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ContentLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Deanships">
@@ -180,8 +180,8 @@ warning 6002: The table/view 'UNIVERSITY.dbo.Teachers' does not have a primary k
             <PropertyRef Name="Website" />
           </Key>
           <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Website" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Website" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Faculties">
           <Key>
@@ -190,8 +190,8 @@ warning 6002: The table/view 'UNIVERSITY.dbo.Teachers' does not have a primary k
             <PropertyRef Name="Website" />
           </Key>
           <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Website" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Website" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Laboratories">
           <Key>
@@ -199,7 +199,7 @@ warning 6002: The table/view 'UNIVERSITY.dbo.Teachers' does not have a primary k
             <PropertyRef Name="Name" />
           </Key>
           <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ContentLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Majors">
@@ -209,8 +209,8 @@ warning 6002: The table/view 'UNIVERSITY.dbo.Teachers' does not have a primary k
             <PropertyRef Name="Website" />
           </Key>
           <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Website" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Website" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="SchoolSubjects">
           <Key>
@@ -221,19 +221,10 @@ warning 6002: The table/view 'UNIVERSITY.dbo.Teachers' does not have a primary k
             <PropertyRef Name="EvaluationType" />
           </Key>
           <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ExamProportion" Type="Int32" Nullable="false" />
           <Property Name="Credits" Type="Int32" Nullable="false" />
-          <Property Name="EvaluationType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Students">
-          <Key>
-            <PropertyRef Name="Id" />
-            <PropertyRef Name="Name" />
-          </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Credits" Type="Int32" />
+          <Property Name="EvaluationType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Teachers">
           <Key>
@@ -241,18 +232,16 @@ warning 6002: The table/view 'UNIVERSITY.dbo.Teachers' does not have a primary k
             <PropertyRef Name="Name" />
           </Key>
           <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Courses" EntityType="Self.Courses" />
-          <EntitySet Name="Deanships" EntityType="Self.Deanships" />
-          <EntitySet Name="Faculties" EntityType="Self.Faculties" />
-          <EntitySet Name="Laboratories" EntityType="Self.Laboratories" />
-          <EntitySet Name="Majors" EntityType="Self.Majors" />
-          <EntitySet Name="SchoolSubjects" EntityType="Self.SchoolSubjects" />
-          <EntitySet Name="Students" EntityType="Self.Students" />
-          <EntitySet Name="Teachers" EntityType="Self.Teachers" />
-        </EntityContainer>
+        <EntityType Name="Students">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Credits" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -262,73 +251,73 @@ warning 6002: The table/view 'UNIVERSITY.dbo.Teachers' does not have a primary k
           <EntitySetMapping Name="Courses">
             <EntityTypeMapping TypeName="UNIVERSITYModel.Courses">
               <MappingFragment StoreEntitySet="Courses">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ContentLink" ColumnName="ContentLink" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Deanships">
             <EntityTypeMapping TypeName="UNIVERSITYModel.Deanships">
               <MappingFragment StoreEntitySet="Deanships">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Faculties">
             <EntityTypeMapping TypeName="UNIVERSITYModel.Faculties">
               <MappingFragment StoreEntitySet="Faculties">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Laboratories">
             <EntityTypeMapping TypeName="UNIVERSITYModel.Laboratories">
               <MappingFragment StoreEntitySet="Laboratories">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ContentLink" ColumnName="ContentLink" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Majors">
             <EntityTypeMapping TypeName="UNIVERSITYModel.Majors">
               <MappingFragment StoreEntitySet="Majors">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SchoolSubjects">
             <EntityTypeMapping TypeName="UNIVERSITYModel.SchoolSubjects">
               <MappingFragment StoreEntitySet="SchoolSubjects">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ExamProportion" ColumnName="ExamProportion" />
-                <ScalarProperty Name="Credits" ColumnName="Credits" />
                 <ScalarProperty Name="EvaluationType" ColumnName="EvaluationType" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Students">
-            <EntityTypeMapping TypeName="UNIVERSITYModel.Students">
-              <MappingFragment StoreEntitySet="Students">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Credits" ColumnName="Credits" />
+                <ScalarProperty Name="ExamProportion" ColumnName="ExamProportion" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Teachers">
             <EntityTypeMapping TypeName="UNIVERSITYModel.Teachers">
               <MappingFragment StoreEntitySet="Teachers">
-                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="UNIVERSITYModel.Students">
+              <MappingFragment StoreEntitySet="Students">
+                <ScalarProperty Name="Credits" ColumnName="Credits" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -31,7 +31,7 @@ namespace University.DataLayer
         public virtual DbSet<Laboratories> Laboratories { get; set; }
         public virtual DbSet<Majors> Majors { get; set; }
         public virtual DbSet<SchoolSubjects> SchoolSubjects { get; set; }
-        public virtual DbSet<Students> Students { get; set; }
         public virtual DbSet<Teachers> Teachers { get; set; }
+        public virtual DbSet<Students> Students { get; set; }
     }
 }
