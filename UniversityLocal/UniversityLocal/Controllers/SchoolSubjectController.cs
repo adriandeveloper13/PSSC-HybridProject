@@ -10,7 +10,7 @@ using University.Models.StudyYear;
 
 namespace UniversityLocal.Controllers
 {
-    public class SchoolSubject : Controller
+    public class SchoolSubject : BaseController
     {
         // GET: Teacher
         public ActionResult Index()

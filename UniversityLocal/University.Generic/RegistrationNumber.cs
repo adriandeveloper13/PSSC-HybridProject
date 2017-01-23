@@ -13,6 +13,7 @@ namespace University.Generic
         private string _number;
         public string Number { get { return _number; } }
 
+        public RegistrationNumber() { }
         public RegistrationNumber(string number)
         {
             Contract.Requires<ArgumentNullException>(number != null, "text");

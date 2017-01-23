@@ -66,17 +66,16 @@
   <ItemGroup>
     <Compile Include="CommandDispatcher.cs" />
     <Compile Include="CreateDeanshipCommand.cs" />
-    <Compile Include="CreateProfessorCommand.cs" />
+    <Compile Include="CreateTeacherCommand.cs" />
     <Compile Include="CreateSchoolSubjectCommand.cs" />
     <Compile Include="CreateStudentCommand.cs" />
-    <Compile Include="Handlers\CreateStudentCommandHandler.cs" />
+    <Compile Include="Handlers\TeacherHandlers\CreateTeacherCommandHandler.cs" />
+    <Compile Include="Handlers\StudentHandlers\CreateStudentCommandHandler.cs" />
+    <Compile Include="Handlers\StudentHandlers\UpdateStudentCommandHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UpdateStudentCommand.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DbQueryExecutors\DbQueryExecutors.csproj">
-      <Project>{AB6B3BB2-13E1-4CD3-AB75-1354010F63C0}</Project>
-      <Name>DbQueryExecutors</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Interfaces\Interfaces.csproj">
       <Project>{D938F8F4-6AF2-4A2F-8404-2B34A9C1C0E7}</Project>
       <Name>Interfaces</Name>
@@ -105,10 +104,17 @@
       <Project>{2D327D1E-236A-4C8E-B95E-20D0A543C971}</Project>
       <Name>University.Models.StudyYear</Name>
     </ProjectReference>
+    <ProjectReference Include="..\University.Models.Teacher\University.Models.Teacher.csproj">
+      <Project>{CD40C0E8-D394-441D-B61D-B6967AE9C903}</Project>
+      <Name>University.Models.Teacher</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="Handlers\app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Handlers\DeanshipHandlers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

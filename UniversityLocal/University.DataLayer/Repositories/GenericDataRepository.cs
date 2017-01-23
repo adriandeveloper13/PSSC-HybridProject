@@ -6,6 +6,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using University.Common;
+using University.DataLayer.Extensions;
 
 namespace University.DataLayer.Repositories
 {
@@ -30,7 +31,7 @@ namespace University.DataLayer.Repositories
             {
                 mIsEntityTrackingOn = value;
 
-                //mQueryGenerator = mIsEntityTrackingOn ? (Func<IList<string>, IQueryable<T>>)GenerateQuery : GenerateNonTrackingQuery;
+                mQueryGenerator = mIsEntityTrackingOn ? (Func<IList<string>, IQueryable<T>>)GenerateQuery : GenerateNonTrackingQuery;
             }
         }
 
@@ -526,20 +527,20 @@ namespace University.DataLayer.Repositories
 
             await Context.SaveChangesAsync().ConfigureAwait(false);
         }
-            
+
         #endregion
 
         #region Private methods
 
-        //private IQueryable<T> GenerateNonTrackingQuery(IList<string> navigationProperties)
-        //{
-        //    return mDbSet.AsNoTracking().ApplyNavigationProperties(navigationProperties);
-        //}
+        private IQueryable<T> GenerateNonTrackingQuery(IList<string> navigationProperties)
+        {
+            return mDbSet.AsNoTracking().ApplyNavigationProperties(navigationProperties);
+        }
 
-        //private IQueryable<T> GenerateQuery(IList<string> navigationProperties)
-        //{
-        //    return mDbSet.ApplyNavigationProperties(navigationProperties);
-        //}
+        private IQueryable<T> GenerateQuery(IList<string> navigationProperties)
+        {
+            return mDbSet.ApplyNavigationProperties(navigationProperties);
+        }
 
         #endregion
     }

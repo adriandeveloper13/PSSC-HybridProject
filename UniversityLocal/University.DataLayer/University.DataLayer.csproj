@@ -58,6 +58,7 @@
     <Compile Include="Deanships.cs">
       <DependentUpon>UniversityWriteDbModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Extensions\QueryableExtensions.cs" />
     <Compile Include="Faculties.cs">
       <DependentUpon>UniversityWriteDbModel.tt</DependentUpon>
     </Compile>

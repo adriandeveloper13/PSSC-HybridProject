@@ -222,11 +222,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\DeanshipController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SchoolSubjectController.cs" />
-    <Compile Include="Controllers\ProfessorController.cs" />
+    <Compile Include="Controllers\TeacherController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -250,6 +251,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\Custom\ajaxHelper.js" />
+    <Content Include="Scripts\Custom\commonModule.js" />
+    <Content Include="Scripts\Custom\studentModule.js" />
+    <Content Include="Scripts\Custom\teacherModule.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -297,13 +302,16 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Service References\Application Insights\ConnectedService.json" />
     <Content Include="Views\Student\Index.cshtml" />
+    <Content Include="Views\Student\Create.cshtml" />
+    <Content Include="Views\Student\List.cshtml" />
     <Content Include="Views\Student\Edit.cshtml" />
-    <Content Include="Views\Student\CreateStudent.cshtml" />
+    <Content Include="Views\Teacher\Create.cshtml" />
+    <Content Include="Views\Teacher\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Base\" />
     <Folder Include="Views\Deanship\" />
-    <Folder Include="Views\Professor\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -337,6 +345,10 @@
       <Project>{61e8657b-ca60-4837-a1ce-f2bbabb61b05}</Project>
       <Name>University.DataLayer.Implementation</Name>
     </ProjectReference>
+    <ProjectReference Include="..\University.DataLayer\University.DataLayer.csproj">
+      <Project>{05ecad8d-50be-4b99-a72f-d94f69d04c22}</Project>
+      <Name>University.DataLayer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\University.Generic\University.SharedKernel.csproj">
       <Project>{FC59A4A2-2C92-48DF-9DA9-1C3DA60D257D}</Project>
       <Name>University.SharedKernel</Name>
@@ -348,6 +360,10 @@
     <ProjectReference Include="..\University.Models.SchoolSubject\University.Models.StudyYear.csproj">
       <Project>{2D327D1E-236A-4C8E-B95E-20D0A543C971}</Project>
       <Name>University.Models.StudyYear</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\University.Models.Teacher\University.Models.Teacher.csproj">
+      <Project>{CD40C0E8-D394-441D-B61D-B6967AE9C903}</Project>
+      <Name>University.Models.Teacher</Name>
     </ProjectReference>
     <ProjectReference Include="..\University.Services\University.Services.csproj">
       <Project>{4de7da9d-a530-4cf6-9988-06a16682a329}</Project>

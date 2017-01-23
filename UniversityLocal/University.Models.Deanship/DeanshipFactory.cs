@@ -4,7 +4,6 @@ using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DbQueryExecutors;
 using Interfaces.Queries;
 using Modele.Generic.Exceptions;
 using University.Generic;

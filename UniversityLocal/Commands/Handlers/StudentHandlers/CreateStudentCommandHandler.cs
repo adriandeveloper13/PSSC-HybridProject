@@ -6,7 +6,7 @@ using University.DataLayer;
 using University.DataLayer.Implementation.Repositories;
 using University.Models.StudyYear;
 
-namespace Commands.Handlers
+namespace Commands.Handlers.StudentHandlers
 {
     public class CreateStudentCommandHandler : ICommandHandler<CreateStudentCommand>
     {
@@ -16,10 +16,10 @@ namespace Commands.Handlers
 
         public async Task<CommandResult> Execute(CreateStudentCommand command)
         {
-
+        //I can use this handler for both, Crete and update command and to distinguish the commands(create or update) by commandIs
 
             //here we should have
-            //var student = factory.createStudent(command)//where command is the student
+            //var student = factory.createStudent(command)//where command is the student, but factory we will use only for update, or edit operations
             //commandDispatcher.dispatch()
             if (command != null)
             {
@@ -30,7 +30,7 @@ namespace Commands.Handlers
                                 cfg.CreateMap<CreateStudentCommand, Students>()
                                 //.DisableCtorValidation()
                                 .ForMember(dbUsr => dbUsr.Id, vmUsr => vmUsr.MapFrom(vm => vm.RegistrationNumber))
-                                .ForMember(dbUsr => dbUsr.Name, vmUsr => vmUsr.MapFrom(vm => vm.Name.Text))
+                                .ForMember(dbUsr => dbUsr.Name, vmUsr => vmUsr.MapFrom(vm => vm.Name.Name))
                                 .ForMember(dbUsr => dbUsr.Credits, vmUsr => vmUsr.MapFrom(vm => vm.Credits._credits));
                             });
 
@@ -39,7 +39,7 @@ namespace Commands.Handlers
                     var studentRepository = new StudentRepository();
                     var modelCommand = Mapper.Map<CreateStudentCommand, Students>(command);
 
-                    var student = await studentRepository.CreateAsync(modelCommand);
+                    await studentRepository.CreateAsync(modelCommand).ConfigureAwait(false);
                 }
                 catch (Exception ex)
                 {

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DbQueryExecutors;
 using Interfaces.Queries;
 using University.Generic;
 using University.Generic.Exceptions;
@@ -17,7 +16,8 @@ namespace University.Models.Teacher
 
         public List<UniqueIdentifier> SchoolSubjectsIds { get; internal set; }//list of schoolSubjectsIds that a  teacher can teach
 
-        public Teacher(UniqueIdentifier id, PlainText name, List<UniqueIdentifier> schoolSubjectsIds)
+        internal Teacher() { }
+        internal Teacher(UniqueIdentifier id, PlainText name, List<UniqueIdentifier> schoolSubjectsIds)
         {
             this.Name = name;
             this.Id = id;

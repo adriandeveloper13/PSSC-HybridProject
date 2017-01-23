@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Interfaces.Commands;
-using University.Common;
 using University.Common.Interfaces;
 using University.Generic;
-using University.Generic.Exceptions;
 using University.Models.StudyYear;
 
 namespace Commands

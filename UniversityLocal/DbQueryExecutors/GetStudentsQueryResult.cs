@@ -4,15 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Interfaces.Queries;
+using University.DataLayer;
 using University.Models.StudyYear;
 
 namespace DbQueryExecutors
 {
-    public class QueryHandler : IQueryHandler<StudentQuery, Student>
+    public class GetStudentsQueryResult: IQueryResult
     {
-        public Task<Student> Retrieve(StudentQuery query)
-        {
-            throw new NotImplementedException();
-        }
+        public List<Student> Students { get; set; }
+        public bool IsSuccess { get; set; }
     }
 }

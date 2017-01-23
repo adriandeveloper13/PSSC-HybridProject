@@ -45,10 +45,6 @@
     <Compile Include="TeacherFactory.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DbQueryExecutors\DbQueryExecutors.csproj">
-      <Project>{AB6B3BB2-13E1-4CD3-AB75-1354010F63C0}</Project>
-      <Name>DbQueryExecutors</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Interfaces\Interfaces.csproj">
       <Project>{D938F8F4-6AF2-4A2F-8404-2B34A9C1C0E7}</Project>
       <Name>Interfaces</Name>

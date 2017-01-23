@@ -10,9 +10,10 @@ namespace University.Generic.Exceptions
 {
     public class UniqueIdentifier
     {
-        public Guid UniqueId { get; internal set; }
+        public Guid UniqueId { get;  set; }
         public List<Guid> UniqueIds { get; internal set; } 
 
+        public UniqueIdentifier() { }
         public UniqueIdentifier(Guid uniqueId)
         {
             Contract.Requires<ArgumentNullException>(uniqueId != null, "The unique id cannot be null !");

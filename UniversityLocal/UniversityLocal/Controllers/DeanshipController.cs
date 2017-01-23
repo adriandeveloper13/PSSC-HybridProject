@@ -9,7 +9,7 @@ using University.Models;
 
 namespace UniversityLocal.Controllers
 {
-    public class DeanshipController : Controller
+    public class DeanshipController : BaseController
     {
         // GET: Deanship
         public ActionResult Index()

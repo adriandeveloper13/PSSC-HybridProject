@@ -27,5 +27,15 @@ namespace University.Models.Teacher
 
             return teacher;
         }
+
+        public List<Teacher> CreateTeachersList()
+        {
+            return new List<Teacher>();
+        }
+
+        public Teacher CreateTeacher()
+        {
+            return new Teacher();
+        }
     }
 }

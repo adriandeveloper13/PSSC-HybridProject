@@ -4,14 +4,30 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using Commands;
+using DbQueryExecutors.Queries.TeachersQueries;
+using Interfaces.Commands;
+using Interfaces.Queries;
+using University.DataLayer.Implementation.Repositories;
 using University.Models;
 using University.Models.Deanship;
 using University.Models.StudyYear;
+using University.Models.Teacher;
 
 namespace UniversityLocal.Controllers
 {
-    public class ProfessorController : Controller
+    public class TeacherController : BaseController
     {
+
+        private readonly IQueryDispatcher _queryDispatcher;
+        private readonly ICommandDispatcher _commandDispatcher;
+        //private readonly StudentService _service;
+
+        public TeacherController(ICommandDispatcher commandDispatcher, IQueryDispatcher queryDispatcher)
+        {
+            _commandDispatcher = commandDispatcher;
+            _queryDispatcher = queryDispatcher;
+        }
         // GET: Teacher
         public ActionResult Index()
         {
@@ -59,30 +75,38 @@ namespace UniversityLocal.Controllers
 
 
         // GET: Teacher/Details/5
-        public ActionResult Details(int id)
+        public async Task<ActionResult> GetAll()
         {
-            return View();
+            var getAllTeachersQuery = new GetTeacherQuery();
+            var teachers = await _queryDispatcher.Dispatch<GetTeacherQuery, GetTeacherQueryResult>(getAllTeachersQuery);
+
+            return View("List",teachers.TeachersList);
         }
 
         // GET: Teacher/Create
-        public ActionResult Create()
+        [HttpGet]
+        public ActionResult Add()
         {
-            return View();
+            return View("Create");
         }
 
         // POST: Teacher/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public async Task<ActionResult> AddTeacher(string teacherName)
         {
             try
             {
-                // TODO: Add insert logic here
+                //for the moment I can't create a teacher because I need first to create some schoolSubjects
+                //var schoolSubjects = StudyYearFactory.Instance.CreateSchoolSubjectsList();
+                var teacher = TeacherFactory.Instance.CreateTeacher(Guid.NewGuid(), teacherName.ToString(), new List<Guid>() );
+                var createTeacherCommand = new CreateTeacherCommand(teacher);
 
+                await _commandDispatcher.Dispatch(createTeacherCommand);
                 return RedirectToAction("Index");
             }
-            catch
+            catch(Exception ex)
             {
-                return View();
+                throw ex;
             }
         }
 

@@ -39,6 +39,19 @@ namespace University.Models.StudyYear
             return schoolSubject;
         }
 
+        public List<SchoolSubject> CreateSchoolSubjectsList()
+        {
+            return new List<SchoolSubject>();
+        } 
+
+        public Student CreateStudent()
+        {
+            return new Student();
+        }
+        public List<Student> CreateStudentList()
+        {
+           return new List<Student>();
+        }
         public Student CreateStudent(Guid registrationNumber , string name, int credits)
         {
             var student =  new Student(

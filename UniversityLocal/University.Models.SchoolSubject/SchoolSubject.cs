@@ -28,7 +28,7 @@ namespace University.Models.StudyYear
         public ReadOnlyCollection<Student> RegisteredStudents { get { return _registeredStudents.AsReadOnly(); } }
 
 
-        public SchoolSubject() { }
+        internal SchoolSubject() { }
         public SchoolSubject(PlainText name, Proportion examProportion, Credits credits, EvaluationType evaluationType, List<Laboratory> laboratories , List<Course> courses)
         {
             this.Name = name;

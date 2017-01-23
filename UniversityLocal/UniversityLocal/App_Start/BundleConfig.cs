@@ -10,6 +10,17 @@ namespace UniversityLocal
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
+            bundles.Add(new ScriptBundle("~/bundles/studentScript").Include(
+                "~/Scripts/Custom/ajaxHelper.js",
+                "~/Scripts/Custom/studentModule.js",
+                "~/Scripts/Custom/commonModule.js"
+                ));
+            bundles.Add(new ScriptBundle("~/bundles/teacherScript").Include(
+                "~/Scripts/Custom/ajaxHelper.js",
+                "~/Scripts/Custom/teacherModule.js",
+                "~/Scripts/Custom/commonModule.js"
+                ));
+
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
