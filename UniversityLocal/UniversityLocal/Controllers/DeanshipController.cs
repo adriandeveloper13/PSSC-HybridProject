@@ -27,12 +27,12 @@ namespace UniversityLocal.Controllers
             _commandDispatcher = commandDispatcher;
             _queryDispatcher = queryDispatcher;
         }
-        public async Task<ActionResult> AddFaculty(CreateFacultyCommand createFacultyCmd)
+        public async Task<JsonResult> AddFaculty(CreateFacultyCommand createFacultyCmd)
         {
             var faculty = DeanshipFactory.Instance.CreateFaculty(Guid.NewGuid(), createFacultyCmd.Name, createFacultyCmd.Website);
             await _commandDispatcher.Dispatch(new CreateFacultyCommand(faculty));
 
-            return await GetAllFaculties();
+            return Json("dsa");
         }
 
         public async Task<ActionResult> GetAllFaculties(GetFacultyQuery facultyQuery = null)

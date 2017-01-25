@@ -92,7 +92,7 @@ namespace UniversityLocal.Controllers
 
         // POST: Teacher/Create
         [HttpPost]
-        public async Task<ActionResult> AddTeacher(string teacherName)
+        public async Task<JsonResult> AddTeacher(string teacherName)
         {
             try
             {
@@ -102,12 +102,13 @@ namespace UniversityLocal.Controllers
                 var createTeacherCommand = new CreateTeacherCommand(teacher);
 
                 await _commandDispatcher.Dispatch(createTeacherCommand);
-                return RedirectToAction("Index");
             }
             catch(Exception ex)
             {
                 throw ex;
             }
+
+            return Json("");
         }
 
         // GET: Teacher/Edit/5

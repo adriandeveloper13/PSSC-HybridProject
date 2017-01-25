@@ -22,7 +22,7 @@
         debugger;
         var postData = setSchoolSubjectPostData();
         ajaxHelper.post("/StudyYear/AddSchoolSubject", postData, function (data) {
-
+            commonModule.navigate("/StudyYear/GetAllSchoolSubjects");
         }, function () {
 
         });

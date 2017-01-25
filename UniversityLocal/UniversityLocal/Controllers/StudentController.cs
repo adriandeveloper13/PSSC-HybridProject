@@ -38,7 +38,7 @@ namespace UniversityLocal.Controllers
         }
 
         [HttpPost]
-        public virtual async Task<ActionResult> AddStudent(string studentName)
+        public virtual async Task<JsonResult> AddStudent(string studentName)
         {
                 //using the factory to create a student
                 var student = StudyYearFactory.Instance.CreateStudent(Guid.NewGuid(), studentName, 0);
@@ -48,7 +48,7 @@ namespace UniversityLocal.Controllers
            //_service.AddStudent(student);
 
             //return student;
-            return null;
+            return Json("HGJ");
         }
 
         public async Task<ActionResult> GetAllStudents(GetStudentsQuery studentsQuery = null)
@@ -79,17 +79,17 @@ namespace UniversityLocal.Controllers
 
         // POST: Student/Edit/5
         [HttpPost]
-        public async Task<ActionResult> UpdateStudentPost(UpdateStudentCommand student)
+        public async Task<JsonResult> UpdateStudentPost(UpdateStudentCommand student)
         {
             try
             {
                 await _commandDispatcher.Dispatch(student);
-                return RedirectToAction("GetAllStudents");
             }
             catch(Exception ex)
             {
                 throw ex;
             }
+            return Json("DSADAS");
         }
 
         //public ActionResult UpdateStudent(int id, FormCollection collection)the synthax when you are waiting for a form =>>FormCollection

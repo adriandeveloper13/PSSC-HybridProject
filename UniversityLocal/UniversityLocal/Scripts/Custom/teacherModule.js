@@ -15,7 +15,7 @@
         debugger;
         var postData = setTeacherPostData();
         ajaxHelper.post("/Teacher/AddTeacher", postData, function(data) {
-
+            commonModule.navigate("/Teacher/GetAll");
         }, function() {
 
         });

@@ -24,7 +24,7 @@
         postData.Website = $("#faculty-website-name-button").val();
 
         ajaxHelper.post("/Deanship/AddFaculty", postData, function (data) {
-
+            commonModule.navigate("/Deanship/GetAllFaculties");
         }, function () {
 
         });

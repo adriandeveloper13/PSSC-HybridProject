@@ -12,7 +12,7 @@
         debugger;
         var postData = setCoursePostData();
         ajaxHelper.post("/StudyYear/AddCourse", postData, function (data) {
-
+            commonModule.navigate("/StudyYear/AddCourse");
         }, function () {
 
         });

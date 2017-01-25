@@ -22,6 +22,7 @@
         debugger;
         var postData = setStudentPostData();
         ajaxHelper.post("/Student/AddStudent", postData, function(data) {
+            commonModule.navigate("/Student/GetAllStudents");
 
         }, function() {
 
@@ -38,7 +39,7 @@
         var postData = setUpdatedStudentPostData();
         postData.RegistrationNumber = studentId;
         ajaxHelper.post("/Student/UpdateStudentPost", postData, function (data) {
-
+            commonModule.navigate("/Student/GetAllStudents");
             },
             function() {
 

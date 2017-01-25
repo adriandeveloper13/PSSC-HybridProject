@@ -12,7 +12,7 @@
         debugger;
         var postData = setlaboratoryPostData();
         ajaxHelper.post("/StudyYear/AddLaboratory", postData, function (data) {
-
+            commonModule.navigate("/StudyYear/AddLaboratory");
         }, function () {
 
         });

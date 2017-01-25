@@ -45,7 +45,7 @@ namespace UniversityLocal.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> AddCourse(CreateCourseCommand createCourseCommand)
+        public async Task<JsonResult> AddCourse(CreateCourseCommand createCourseCommand)
         {
             var course = StudyYearFactory.Instance.CreateCourse(Guid.NewGuid(),createCourseCommand.Name,createCourseCommand.ContentLink);
 
@@ -57,7 +57,7 @@ namespace UniversityLocal.Controllers
             {
                 throw ex;
             }
-            return null;
+            return Json("");
         }
 
         public async Task<ActionResult> GetAllLaboratories(GetLaboratoriesQuery laboratoryQuery)
@@ -79,7 +79,7 @@ namespace UniversityLocal.Controllers
 
 
         [HttpPost]
-        public async Task<ActionResult> AddLaboratory(CreateLaboratoryCommand createLaboratoryCommand)
+        public async Task<JsonResult> AddLaboratory(CreateLaboratoryCommand createLaboratoryCommand)
         {
             var laboratory = StudyYearFactory.Instance.CreateLaboratory(Guid.NewGuid(), createLaboratoryCommand.Name, createLaboratoryCommand.ContentLink);
 
@@ -92,10 +92,10 @@ namespace UniversityLocal.Controllers
             {
                 throw ex;
             }
-            return null;
+            return Json("");
         }
         [HttpPost]
-        public async Task<ActionResult> AddSchoolSubject(CreateSchoolSubjectCommand schoolSubjectCommand)
+        public async Task<JsonResult> AddSchoolSubject(CreateSchoolSubjectCommand schoolSubjectCommand)
         {
             //here I must to have an parameter like CreateSchoolSubject command without complex properties like PlainText
             var schoolSubject = StudyYearFactory.Instance.CreateSchoolSubject(Guid.NewGuid(), schoolSubjectCommand.Name,
@@ -109,7 +109,7 @@ namespace UniversityLocal.Controllers
             {
                 throw ex;
             }
-            return null;
+            return Json("");
         }
 
 
