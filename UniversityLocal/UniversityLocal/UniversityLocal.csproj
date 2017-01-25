@@ -226,7 +226,7 @@
     <Compile Include="Controllers\DeanshipController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\SchoolSubjectController.cs" />
+    <Compile Include="Controllers\StudyYearController.cs" />
     <Compile Include="Controllers\TeacherController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Global.asax.cs">
@@ -253,6 +253,10 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Custom\ajaxHelper.js" />
     <Content Include="Scripts\Custom\commonModule.js" />
+    <Content Include="Scripts\Custom\courseModule.js" />
+    <Content Include="Scripts\Custom\deanshipModule.js" />
+    <Content Include="Scripts\Custom\laboratoryModule.js" />
+    <Content Include="Scripts\Custom\schoolSubjectModule.js" />
     <Content Include="Scripts\Custom\studentModule.js" />
     <Content Include="Scripts\Custom\teacherModule.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -307,11 +311,17 @@
     <Content Include="Views\Student\Edit.cshtml" />
     <Content Include="Views\Teacher\Create.cshtml" />
     <Content Include="Views\Teacher\List.cshtml" />
+    <Content Include="Views\StudyYear\CreateSchoolSubject.cshtml" />
+    <Content Include="Views\StudyYear\ListSchoolSubjects.cshtml" />
+    <Content Include="Views\StudyYear\ListCourses.cshtml" />
+    <Content Include="Views\StudyYear\ListLaboratories.cshtml" />
+    <Content Include="Views\Deanship\ListFaculties.cshtml" />
+    <Content Include="Views\Deanship\ListMajors.cshtml" />
+    <Content Include="Views\Deanship\CreateFaculty.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Base\" />
-    <Folder Include="Views\Deanship\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

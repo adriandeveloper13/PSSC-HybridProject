@@ -66,9 +66,17 @@
   <ItemGroup>
     <Compile Include="CommandDispatcher.cs" />
     <Compile Include="CreateDeanshipCommand.cs" />
+    <Compile Include="CreateFacultyCommand.cs" />
     <Compile Include="CreateTeacherCommand.cs" />
     <Compile Include="CreateSchoolSubjectCommand.cs" />
     <Compile Include="CreateStudentCommand.cs" />
+    <Compile Include="Handlers\CreateLaboratoryCommand.cs" />
+    <Compile Include="Handlers\CreateCourseCommand.cs" />
+    <Compile Include="Handlers\CourseHandlers\CreateCourseCommandHandler.cs" />
+    <Compile Include="Handlers\FacultyHandlers\CreateFacultyCommandHandler.cs" />
+    <Compile Include="Handlers\LaboratoryHandlers\CreateLaboratoryCommandHandler.cs" />
+    <Compile Include="Handlers\SchoolSubjectHandlers\CreateSchoolSubjectCommandHandler.cs" />
+    <Compile Include="Handlers\SchoolSubjectHandlers\UpdateSchoolSubjectCommandHandler.cs" />
     <Compile Include="Handlers\TeacherHandlers\CreateTeacherCommandHandler.cs" />
     <Compile Include="Handlers\StudentHandlers\CreateStudentCommandHandler.cs" />
     <Compile Include="Handlers\StudentHandlers\UpdateStudentCommandHandler.cs" />
@@ -100,6 +108,10 @@
       <Project>{FC59A4A2-2C92-48DF-9DA9-1C3DA60D257D}</Project>
       <Name>University.SharedKernel</Name>
     </ProjectReference>
+    <ProjectReference Include="..\University.Models.Deanship\University.Models.Deanship.csproj">
+      <Project>{C4BF73B9-80E2-47C0-BE0C-65385FC41B54}</Project>
+      <Name>University.Models.Deanship</Name>
+    </ProjectReference>
     <ProjectReference Include="..\University.Models.SchoolSubject\University.Models.StudyYear.csproj">
       <Project>{2D327D1E-236A-4C8E-B95E-20D0A543C971}</Project>
       <Name>University.Models.StudyYear</Name>
@@ -115,6 +127,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Handlers\DeanshipHandlers\" />
+    <Folder Include="Handlers\MajorHandlers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

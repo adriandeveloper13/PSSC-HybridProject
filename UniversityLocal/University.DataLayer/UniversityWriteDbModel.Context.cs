@@ -28,10 +28,11 @@ namespace University.DataLayer
         public virtual DbSet<Courses> Courses { get; set; }
         public virtual DbSet<Deanships> Deanships { get; set; }
         public virtual DbSet<Faculties> Faculties { get; set; }
-        public virtual DbSet<Laboratories> Laboratories { get; set; }
         public virtual DbSet<Majors> Majors { get; set; }
         public virtual DbSet<SchoolSubjects> SchoolSubjects { get; set; }
-        public virtual DbSet<Teachers> Teachers { get; set; }
         public virtual DbSet<Students> Students { get; set; }
+        public virtual DbSet<Teachers> Teachers { get; set; }
+        public virtual DbSet<Laboratories> Laboratories { get; set; }
+        public virtual DbSet<StudentSituation> StudentSituation { get; set; }
     }
 }

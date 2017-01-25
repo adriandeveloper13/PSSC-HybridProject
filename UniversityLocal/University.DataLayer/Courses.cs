@@ -7,14 +7,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using University.Common;
-
 namespace University.DataLayer
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Courses : IDatabaseObjectEntity
+    public partial class Courses
     {
         public System.Guid Id { get; set; }
         public string Name { get; set; }

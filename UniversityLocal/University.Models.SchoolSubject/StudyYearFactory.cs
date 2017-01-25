@@ -22,16 +22,18 @@ namespace University.Models.StudyYear
             return studyYear;
         }
 
-        public SchoolSubject CreateSchoolSubject(string name, int[] proportion, List<Laboratory> laboratories, List<Course> courses )
+        public SchoolSubject CreateSchoolSubject(Guid Id, string name, int proportion, int credits, int evaluationType, List<Laboratory> laboratories, List<Course> courses )
         {
             Contract.Requires<ArgumentNullException>(name != null, "The name is null !");
             Contract.Requires<ArgumentInvalidLengthException>(name.Length >= 2 && name.Length <= 50, "The name length should be between 2 and 50 characters !");
 
             var schoolSubject = new SchoolSubject(
+                new UniqueIdentifier(Id), 
                 new PlainText(name), 
-                new Proportion(proportion[0], proportion[1]), 
-                new Credits(3), 
-                EvaluationType.DistributedSchoolSubject,
+                new Proportion(proportion, 1), 
+                new Credits(credits),
+                //(EvaluationType)Enum.Parse(typeof(EvaluationType), evaluationType, true),
+                (EvaluationType)evaluationType,
                 laboratories,
                 courses
                 );
@@ -62,26 +64,35 @@ namespace University.Models.StudyYear
             return student;
         }
 
-        internal Course CreateCourse(Guid id, string name, string contentLink)
+        public Course CreateCourse(Guid id, string name, string contentLink)
         {
             var course = new Course( 
                 new UniqueIdentifier(id),
                 new PlainText(name),
-                new Uri(contentLink));
+                contentLink);
 
             return course;
         }
 
-        internal Laboratory CreateLaboratory(Guid id, string name, string contentLink)
+        public Laboratory CreateLaboratory(Guid id, string name, string contentLink)
         {
             var laboratory = new Laboratory(
                 new UniqueIdentifier(id),
                 new PlainText(name),
-                new Uri(contentLink));
+                contentLink);
 
             return laboratory;
         }
 
 
+        public List<Course> CreateCoursesList()
+        {
+            return new List<Course>();
+        }
+
+        public List<Laboratory> CreateLaboratoriesList()
+        {
+            return new List<Laboratory>();
+        }
     }
 }

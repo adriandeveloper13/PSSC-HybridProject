@@ -11,7 +11,7 @@ namespace University.Generic
     {
         private decimal _value;
 
-        public decimal Value
+        public decimal GradeValue
         {
             get { return _value; }
         }
@@ -29,12 +29,12 @@ namespace University.Generic
         public override bool Equals(object obj)
         {
             var grade = (Grade) obj;
-            return Value == grade.Value;
+            return GradeValue == grade.GradeValue;
         }
 
         public override string ToString()
         {
-            return string.Format("{0}", Value);
+            return $"{GradeValue}";
         }
         #endregion
     }

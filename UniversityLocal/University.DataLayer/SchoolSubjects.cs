@@ -7,19 +7,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using University.Common;
-
 namespace University.DataLayer
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class SchoolSubjects : IDatabaseObjectEntity
+    public partial class SchoolSubjects
     {
         public System.Guid Id { get; set; }
         public string Name { get; set; }
         public int ExamProportion { get; set; }
         public int Credits { get; set; }
-        public string EvaluationType { get; set; }
+        public Nullable<int> EvaluationType { get; set; }
     }
 }

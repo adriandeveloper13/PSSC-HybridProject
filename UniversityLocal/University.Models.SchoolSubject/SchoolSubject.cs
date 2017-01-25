@@ -15,7 +15,6 @@ namespace University.Models.StudyYear
         public Proportion ExamProportion { get; internal set; }
 
         public Credits Credits { get; internal set; }
-        public List<Grade> ActivityGrades { get; internal set; }
         public EvaluationType EvaluationType { get; internal set; }
 
         public List<Course> Courses { get; internal set; } 
@@ -28,9 +27,10 @@ namespace University.Models.StudyYear
         public ReadOnlyCollection<Student> RegisteredStudents { get { return _registeredStudents.AsReadOnly(); } }
 
 
-        internal SchoolSubject() { }
-        public SchoolSubject(PlainText name, Proportion examProportion, Credits credits, EvaluationType evaluationType, List<Laboratory> laboratories , List<Course> courses)
+        public SchoolSubject() { }
+        public SchoolSubject(UniqueIdentifier Id, PlainText name, Proportion examProportion, Credits credits, EvaluationType evaluationType, List<Laboratory> laboratories = null , List<Course> courses = null)
         {
+            this.Id = Id;
             this.Name = name;
             this.EvaluationType = evaluationType;
             this.Credits = credits;
@@ -39,8 +39,8 @@ namespace University.Models.StudyYear
             this.Courses = courses;
 
         }
-        public SchoolSubject(PlainText name, Proportion examProportion, Credits credits, EvaluationType evaluationType, List<Student> registeredStudents, List<Laboratory> laboratories, List<Course> courses )
-            :this(name, examProportion, credits, evaluationType, laboratories, courses)
+        public SchoolSubject(UniqueIdentifier Id, PlainText name, Proportion examProportion, Credits credits, EvaluationType evaluationType, List<Student> registeredStudents, List<Laboratory> laboratories, List<Course> courses )
+            :this(Id, name, examProportion, credits, evaluationType, laboratories, courses)
         {
             ExamProportion = examProportion;
             _registeredStudents = registeredStudents;

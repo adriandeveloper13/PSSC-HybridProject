@@ -6,9 +6,10 @@
 
 <h2>List</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<input type="button" class="add-teacher-view-button" value="Add teacher" onclick="location.href = '@Url.Action("Add", "Teacher")'"/>
+
+<input type="button" class="students-view-button" value="Students" onclick="location.href='@Url.Action("GetAllStudents", "Student")'" />
+
 <table class="table">
     <tr>
         <th>

@@ -66,10 +66,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GetStudentsQueryResult.cs" />
+    <Compile Include="Handlers\CourseHandlers\GetCourseQueryHandler.cs" />
+    <Compile Include="Handlers\DeanshipHandlers\GetFacultyCommandHandler.cs" />
+    <Compile Include="Handlers\LaboratoryHandlers\GetLaboratoryQueryHandler.cs" />
+    <Compile Include="Handlers\SchoolSubjectHandlers\GetSchoolSubjectQueryHandler.cs" />
     <Compile Include="Handlers\StudentHandlers\GetStudentsQueryHandler.cs" />
     <Compile Include="Handlers\StudentHandlers\UpdateStudentQueryHandler.cs" />
     <Compile Include="Handlers\TeacherHandlers\GetTeacherQueryHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\DeanshipQueries\GetFacultyQuery.cs" />
+    <Compile Include="Queries\DeanshipQueries\GetFacultyQueryResult.cs" />
+    <Compile Include="Queries\SchoolSubjectsQueries\GetLaboratoriesQuery.cs" />
+    <Compile Include="Queries\SchoolSubjectsQueries\GetCoursesQuery.cs" />
+    <Compile Include="Queries\SchoolSubjectsQueries\GetCoursesQueryResult.cs" />
+    <Compile Include="Queries\SchoolSubjectsQueries\GetLaboratoriesQueryResult.cs" />
+    <Compile Include="Queries\SchoolSubjectsQueries\GetSchoolSubjectQuery.cs" />
+    <Compile Include="Queries\SchoolSubjectsQueries\GetSchoolSubjectQueryResult.cs" />
     <Compile Include="Queries\TeachersQueries\GetTeacherQuery.cs" />
     <Compile Include="Queries\TeachersQueries\GetTeacherQueryResult.cs" />
     <Compile Include="QueryDispatcher.cs" />
@@ -99,6 +111,10 @@
       <Project>{FC59A4A2-2C92-48DF-9DA9-1C3DA60D257D}</Project>
       <Name>University.SharedKernel</Name>
     </ProjectReference>
+    <ProjectReference Include="..\University.Models.Deanship\University.Models.Deanship.csproj">
+      <Project>{C4BF73B9-80E2-47C0-BE0C-65385FC41B54}</Project>
+      <Name>University.Models.Deanship</Name>
+    </ProjectReference>
     <ProjectReference Include="..\University.Models.SchoolSubject\University.Models.StudyYear.csproj">
       <Project>{2d327d1e-236a-4c8e-b95e-20d0a543c971}</Project>
       <Name>University.Models.StudyYear</Name>
@@ -112,11 +128,7 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Handlers\DeanshipHandlers\" />
-    <Folder Include="Queries\DeanshipQueries\" />
-    <Folder Include="Queries\SchoolSubjectsQueries\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

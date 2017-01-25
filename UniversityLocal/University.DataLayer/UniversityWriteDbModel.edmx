@@ -5,79 +5,55 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="UNIVERSITYModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'UNIVERSITY.dbo.Courses' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Courses">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="Name" />
           </Key>
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="ContentLink" Type="varchar(max)" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'UNIVERSITY.dbo.Deanships' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Deanships">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="Name" />
-            <PropertyRef Name="Website" />
           </Key>
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Website" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'UNIVERSITY.dbo.Faculties' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Faculties">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="Name" />
-            <PropertyRef Name="Website" />
           </Key>
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Website" Type="varchar(max)" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'UNIVERSITY.dbo.Laboratories' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Laboratories">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="Name" />
           </Key>
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="ContentLink" Type="varchar(max)" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'UNIVERSITY.dbo.Majors' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Majors">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="Name" />
-            <PropertyRef Name="Website" />
           </Key>
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Website" Type="varchar(max)" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'UNIVERSITY.dbo.SchoolSubjects' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="SchoolSubjects">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="Name" />
-            <PropertyRef Name="ExamProportion" />
-            <PropertyRef Name="Credits" />
-            <PropertyRef Name="EvaluationType" />
           </Key>
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="ExamProportion" Type="int" Nullable="false" />
           <Property Name="Credits" Type="int" Nullable="false" />
-          <Property Name="EvaluationType" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EvaluationType" Type="int" />
         </EntityType>
         <EntityType Name="Students">
           <Key>
@@ -87,68 +63,35 @@ warning 6002: The table/view 'UNIVERSITY.dbo.SchoolSubjects' does not have a pri
           <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Credits" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'UNIVERSITY.dbo.Teachers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="StudentSituation">
+          <Key>
+            <PropertyRef Name="StudentId" />
+            <PropertyRef Name="SchoolSubjectId" />
+          </Key>
+          <Property Name="StudentId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SchoolSubjectId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SchoolSubjectName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ActivityGrade" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ExamGrade" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="FinalGrade" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
         <EntityType Name="Teachers">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="Name" />
           </Key>
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityContainer Name="UNIVERSITYModelStoreContainer">
+          <EntitySet Name="Courses" EntityType="Self.Courses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Deanships" EntityType="Self.Deanships" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Faculties" EntityType="Self.Faculties" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Laboratories" EntityType="Self.Laboratories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Majors" EntityType="Self.Majors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SchoolSubjects" EntityType="Self.SchoolSubjects" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Courses" EntityType="Self.Courses" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Courses].[Id] AS [Id], 
-    [Courses].[Name] AS [Name], 
-    [Courses].[ContentLink] AS [ContentLink]
-    FROM [dbo].[Courses] AS [Courses]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Deanships" EntityType="Self.Deanships" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Deanships].[Id] AS [Id], 
-    [Deanships].[Name] AS [Name], 
-    [Deanships].[Website] AS [Website]
-    FROM [dbo].[Deanships] AS [Deanships]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Faculties" EntityType="Self.Faculties" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Faculties].[Id] AS [Id], 
-    [Faculties].[Name] AS [Name], 
-    [Faculties].[Website] AS [Website]
-    FROM [dbo].[Faculties] AS [Faculties]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Laboratories" EntityType="Self.Laboratories" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Laboratories].[Id] AS [Id], 
-    [Laboratories].[Name] AS [Name], 
-    [Laboratories].[ContentLink] AS [ContentLink]
-    FROM [dbo].[Laboratories] AS [Laboratories]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Majors" EntityType="Self.Majors" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Majors].[Id] AS [Id], 
-    [Majors].[Name] AS [Name], 
-    [Majors].[Website] AS [Website]
-    FROM [dbo].[Majors] AS [Majors]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="SchoolSubjects" EntityType="Self.SchoolSubjects" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [SchoolSubjects].[Id] AS [Id], 
-    [SchoolSubjects].[Name] AS [Name], 
-    [SchoolSubjects].[ExamProportion] AS [ExamProportion], 
-    [SchoolSubjects].[Credits] AS [Credits], 
-    [SchoolSubjects].[EvaluationType] AS [EvaluationType]
-    FROM [dbo].[SchoolSubjects] AS [SchoolSubjects]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Teachers" EntityType="Self.Teachers" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Teachers].[Id] AS [Id], 
-    [Teachers].[Name] AS [Name]
-    FROM [dbo].[Teachers] AS [Teachers]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="StudentSituation" EntityType="Self.StudentSituation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Teachers" EntityType="Self.Teachers" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -158,16 +101,16 @@ warning 6002: The table/view 'UNIVERSITY.dbo.Teachers' does not have a primary k
           <EntitySet Name="Courses" EntityType="UNIVERSITYModel.Courses" />
           <EntitySet Name="Deanships" EntityType="UNIVERSITYModel.Deanships" />
           <EntitySet Name="Faculties" EntityType="UNIVERSITYModel.Faculties" />
-          <EntitySet Name="Laboratories" EntityType="UNIVERSITYModel.Laboratories" />
           <EntitySet Name="Majors" EntityType="UNIVERSITYModel.Majors" />
           <EntitySet Name="SchoolSubjects" EntityType="UNIVERSITYModel.SchoolSubjects" />
-          <EntitySet Name="Teachers" EntityType="UNIVERSITYModel.Teachers" />
           <EntitySet Name="Students" EntityType="UNIVERSITYModel.Students" />
+          <EntitySet Name="Teachers" EntityType="UNIVERSITYModel.Teachers" />
+          <EntitySet Name="Laboratories" EntityType="UNIVERSITYModel.Laboratories" />
+          <EntitySet Name="StudentSituation" EntityType="UNIVERSITYModel.StudentSituation" />
         </EntityContainer>
         <EntityType Name="Courses">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="Name" />
           </Key>
           <Property Name="Id" Type="Guid" Nullable="false" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -176,8 +119,6 @@ warning 6002: The table/view 'UNIVERSITY.dbo.Teachers' does not have a primary k
         <EntityType Name="Deanships">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="Name" />
-            <PropertyRef Name="Website" />
           </Key>
           <Property Name="Id" Type="Guid" Nullable="false" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -186,27 +127,14 @@ warning 6002: The table/view 'UNIVERSITY.dbo.Teachers' does not have a primary k
         <EntityType Name="Faculties">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="Name" />
-            <PropertyRef Name="Website" />
           </Key>
           <Property Name="Id" Type="Guid" Nullable="false" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Website" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="Laboratories">
-          <Key>
-            <PropertyRef Name="Id" />
-            <PropertyRef Name="Name" />
-          </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ContentLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="Majors">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="Name" />
-            <PropertyRef Name="Website" />
           </Key>
           <Property Name="Id" Type="Guid" Nullable="false" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -215,24 +143,12 @@ warning 6002: The table/view 'UNIVERSITY.dbo.Teachers' does not have a primary k
         <EntityType Name="SchoolSubjects">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="Name" />
-            <PropertyRef Name="ExamProportion" />
-            <PropertyRef Name="Credits" />
-            <PropertyRef Name="EvaluationType" />
           </Key>
           <Property Name="Id" Type="Guid" Nullable="false" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ExamProportion" Type="Int32" Nullable="false" />
           <Property Name="Credits" Type="Int32" Nullable="false" />
-          <Property Name="EvaluationType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="Teachers">
-          <Key>
-            <PropertyRef Name="Id" />
-            <PropertyRef Name="Name" />
-          </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EvaluationType" Type="Int32" />
         </EntityType>
         <EntityType Name="Students">
           <Key>
@@ -242,7 +158,34 @@ warning 6002: The table/view 'UNIVERSITY.dbo.Teachers' does not have a primary k
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Credits" Type="Int32" />
         </EntityType>
-      </Schema>
+        <EntityType Name="Teachers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Laboratories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ContentLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="StudentSituation">
+          <Key>
+            <PropertyRef Name="StudentId" />
+            <PropertyRef Name="SchoolSubjectId" />
+          </Key>
+          <Property Name="StudentId" Type="Guid" Nullable="false" />
+          <Property Name="SchoolSubjectId" Type="Guid" Nullable="false" />
+          <Property Name="SchoolSubjectName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ActivityGrade" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="ExamGrade" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="FinalGrade" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+        </EntityType>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -275,15 +218,6 @@ warning 6002: The table/view 'UNIVERSITY.dbo.Teachers' does not have a primary k
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Laboratories">
-            <EntityTypeMapping TypeName="UNIVERSITYModel.Laboratories">
-              <MappingFragment StoreEntitySet="Laboratories">
-                <ScalarProperty Name="ContentLink" ColumnName="ContentLink" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Majors">
             <EntityTypeMapping TypeName="UNIVERSITYModel.Majors">
               <MappingFragment StoreEntitySet="Majors">
@@ -304,6 +238,15 @@ warning 6002: The table/view 'UNIVERSITY.dbo.Teachers' does not have a primary k
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="UNIVERSITYModel.Students">
+              <MappingFragment StoreEntitySet="Students">
+                <ScalarProperty Name="Credits" ColumnName="Credits" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Teachers">
             <EntityTypeMapping TypeName="UNIVERSITYModel.Teachers">
               <MappingFragment StoreEntitySet="Teachers">
@@ -312,12 +255,24 @@ warning 6002: The table/view 'UNIVERSITY.dbo.Teachers' does not have a primary k
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Students">
-            <EntityTypeMapping TypeName="UNIVERSITYModel.Students">
-              <MappingFragment StoreEntitySet="Students">
-                <ScalarProperty Name="Credits" ColumnName="Credits" />
+          <EntitySetMapping Name="Laboratories">
+            <EntityTypeMapping TypeName="UNIVERSITYModel.Laboratories">
+              <MappingFragment StoreEntitySet="Laboratories">
+                <ScalarProperty Name="ContentLink" ColumnName="ContentLink" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentSituation">
+            <EntityTypeMapping TypeName="UNIVERSITYModel.StudentSituation">
+              <MappingFragment StoreEntitySet="StudentSituation">
+                <ScalarProperty Name="FinalGrade" ColumnName="FinalGrade" />
+                <ScalarProperty Name="ExamGrade" ColumnName="ExamGrade" />
+                <ScalarProperty Name="ActivityGrade" ColumnName="ActivityGrade" />
+                <ScalarProperty Name="SchoolSubjectName" ColumnName="SchoolSubjectName" />
+                <ScalarProperty Name="SchoolSubjectId" ColumnName="SchoolSubjectId" />
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

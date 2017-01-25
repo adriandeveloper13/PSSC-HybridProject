@@ -48,15 +48,15 @@ namespace University.Models.Deanship
             get { return _definedProfessors.AsReadOnly(); }
         }
 
-        public void DefinedSchoolSubject(PlainText name, Proportion examProportion, Credits credits,
+        public void DefinedSchoolSubject(UniqueIdentifier Id, PlainText name, Proportion examProportion, Credits credits,
             EvaluationType evaluationType, List<Laboratory> laboratories, List<Course> courses)
         {
-            _definedSchoolSubjects.Add(new SchoolSubject(name, examProportion, credits, evaluationType, laboratories, courses) );
+            _definedSchoolSubjects.Add(new SchoolSubject(Id, name, examProportion, credits, evaluationType, laboratories, courses) );
         }
-        public void DefinedSchoolSubject(PlainText name, Proportion examProportion, Credits credits,
+        public void DefinedSchoolSubject(UniqueIdentifier Id, PlainText name, Proportion examProportion, Credits credits,
             EvaluationType evaluationType, List<Student> registeredStudents, List<Laboratory> laboratories, List<Course> courses)//profesorul care se ocupa de disciplina respectiva
         {
-            _definedSchoolSubjects.Add(new SchoolSubject(name, examProportion, credits, evaluationType, registeredStudents, laboratories, courses));
+            _definedSchoolSubjects.Add(new SchoolSubject(Id, name, examProportion, credits, evaluationType, registeredStudents, laboratories, courses));
         }
         public void DefinedSchoolSubject(PlainText name, Proportion examProportion, Credits credits,
             EvaluationType evaluationType, List<Student> registeredStudents, Guid schoolSubjectProfessorId, List<Laboratory> laboratories, List<Course> courses)//studentii inscrisi pt fiecare disciplina

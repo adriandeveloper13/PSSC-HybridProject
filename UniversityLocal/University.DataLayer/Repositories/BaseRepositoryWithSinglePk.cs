@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using LoggingService;
 using University.Common;
+using University.Common.Interfaces;
 
 namespace University.DataLayer.Repositories
 {
-    public class BaseRepositoryWithSinglePk<T>: BaseRepository<T> where T: class, IDatabaseObjectEntity, new()
+    public class BaseRepositoryWithSinglePk<T>: BaseRepository<T> where T: class, IDatabaseObjectEntity, IDatabaseObjectEntityWithoutId, new()
     {
         public async Task<T> GetAsync(Guid id, IList<string> navigationProperties = null)
         {

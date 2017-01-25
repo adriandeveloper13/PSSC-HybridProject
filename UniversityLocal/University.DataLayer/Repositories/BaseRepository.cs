@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using University.Common;
+using University.Common.Interfaces;
 
 namespace University.DataLayer.Repositories
 {
-    public abstract class BaseRepository<T> : GenericDataRepository<T> where T: class, IDatabaseObjectEntity, new()
+    public abstract class BaseRepository<T> : GenericDataRepository<T> where T: class, IDatabaseObjectEntity, IDatabaseObjectEntityWithoutId, new()
     {
         #region public methods
 

@@ -16,18 +16,19 @@ namespace University.Models.Deanship
     {
         public UniqueIdentifier Id { get; internal set; }
         public PlainText Name { get; internal set; }
-        public Uri WebsiteLink { get; internal set; }
+        public string Website { get; internal set; }
 
-       internal Faculty(UniqueIdentifier id, PlainText name, Uri websiteLink)
+       internal Faculty() { }
+       internal Faculty(UniqueIdentifier id, PlainText name, string websiteLink)
        {
            Id = id;
            Name = name;
-           WebsiteLink = websiteLink;
+           Website = websiteLink;
        }
 
-       internal void ActualizingContent(Uri url)
+       internal void ActualizingContent(string url)
        {
-           WebsiteLink = url;
+            Website = url;
        }
 
         #region overrride objects

@@ -11,9 +11,9 @@ namespace University.Models.StudyYear
         public UniqueIdentifier Id { get; internal set; }
         public PlainText Name { get; internal set; }
 
-        public Uri ContentLink { get; internal set; }
+        public string ContentLink { get; internal set; }
 
-        internal Laboratory(UniqueIdentifier id, PlainText name, Uri contentLink)
+        internal Laboratory(UniqueIdentifier id, PlainText name, string contentLink)
         {
             Contract.Requires(Id != null, "The course name cannot be empty");
             Id = id;
@@ -23,7 +23,7 @@ namespace University.Models.StudyYear
 
         #region operations
 
-        internal void ActualizingContentLink(Uri url)
+        internal void ActualizingContentLink(string url)
         {
             Contract.Requires(url != null, "The Laboratory url is null");
             ContentLink = url;

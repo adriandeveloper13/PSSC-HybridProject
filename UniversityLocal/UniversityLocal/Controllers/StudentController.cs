@@ -51,11 +51,14 @@ namespace UniversityLocal.Controllers
             return null;
         }
 
-        public async Task<ActionResult> GetAllStudents()
+        public async Task<ActionResult> GetAllStudents(GetStudentsQuery studentsQuery = null)
         {
-            var getAllStudentsQuery = new GetStudentsQuery();
+            if (studentsQuery == null)
+            {
+            studentsQuery = new GetStudentsQuery();
+            }
 
-            var students = await _queryDispatcher.Dispatch<GetStudentsQuery, GetStudentsQueryResult>(getAllStudentsQuery);
+            var students = await _queryDispatcher.Dispatch<GetStudentsQuery, GetStudentsQueryResult>(studentsQuery);
 
             return View("List",students.Students);
         }

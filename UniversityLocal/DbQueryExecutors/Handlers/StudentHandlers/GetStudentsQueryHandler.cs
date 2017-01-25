@@ -28,7 +28,7 @@ namespace DbQueryExecutors.Handlers.StudentHandlers
               
                     Mapper.Initialize(cfg =>
                     {
-                        cfg.CreateMap<Students, University.Models.StudyYear.Student>()
+                        cfg.CreateMap<Students, Student>()
                             //.DisableCtorValidation()
                             //.ReverseMap()
                             //.ForMember(dbUsr => dbUsr.Id, vmUsr => vmUsr.MapFrom(vm => vm.RegistrationNumber))

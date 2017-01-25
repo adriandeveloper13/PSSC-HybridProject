@@ -26,12 +26,12 @@ namespace University.Models.Deanship
             return deanship;
         }
 
-        internal Faculty CreateFaculty(Guid id, string name, string websiteLink)
+        public Faculty CreateFaculty(Guid id, string name, string websiteLink)
         {
             var faculty = new Faculty(
                 new UniqueIdentifier(id),
                 new PlainText(name),
-                new Uri(websiteLink));
+                websiteLink);
 
             return faculty;
         }
@@ -41,9 +41,14 @@ namespace University.Models.Deanship
             var major = new Major(
                 new UniqueIdentifier(id),
                 new PlainText(name),
-                new Uri(specializationWebSite));
+                specializationWebSite);
             return major;
 
+        }
+
+        public List<Faculty> CreateFacultiesList()
+        {
+            return new List<Faculty>();
         }
     }
 }

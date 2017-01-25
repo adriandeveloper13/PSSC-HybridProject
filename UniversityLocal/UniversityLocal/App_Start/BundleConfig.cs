@@ -20,6 +20,28 @@ namespace UniversityLocal
                 "~/Scripts/Custom/teacherModule.js",
                 "~/Scripts/Custom/commonModule.js"
                 ));
+            bundles.Add(new ScriptBundle("~/bundles/schoolSubjectScript").Include(
+                "~/Scripts/Custom/ajaxHelper.js",
+                "~/Scripts/Custom/schoolSubjectModule.js",
+                "~/Scripts/Custom/commonModule.js"
+                ));
+
+            bundles.Add(new ScriptBundle("~/bundles/courseScript").Include(
+                "~/Scripts/Custom/ajaxHelper.js",
+                "~/Scripts/Custom/courseModule.js",
+                "~/Scripts/Custom/commonModule.js"
+                ));
+
+            bundles.Add(new ScriptBundle("~/bundles/laboratoryScript").Include(
+                "~/Scripts/Custom/ajaxHelper.js",
+                "~/Scripts/Custom/laboratoryModule.js",
+                "~/Scripts/Custom/commonModule.js"
+                ));
+            bundles.Add(new ScriptBundle("~/bundles/deanshipScript").Include(
+                "~/Scripts/Custom/ajaxHelper.js",
+                "~/Scripts/Custom/deanshipModule.js",
+                "~/Scripts/Custom/commonModule.js"
+                ));
 
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(

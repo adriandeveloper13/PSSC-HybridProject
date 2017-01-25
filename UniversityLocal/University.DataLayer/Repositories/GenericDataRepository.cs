@@ -6,11 +6,12 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using University.Common;
+using University.Common.Interfaces;
 using University.DataLayer.Extensions;
 
 namespace University.DataLayer.Repositories
 {
-    public class GenericDataRepository<T>: BaseDataRepository where T: class, IDatabaseObjectEntity, new()
+    public class GenericDataRepository<T>: BaseDataRepository where T: class, IDatabaseObjectEntity, IDatabaseObjectEntityWithoutId ,new()
     {
         private DbSet<T> mDbSet;
         private bool mIsEntityTrackingOn;

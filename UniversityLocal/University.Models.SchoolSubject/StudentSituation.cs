@@ -10,13 +10,14 @@ namespace University.Models.StudyYear
 {
     public class StudentSituation : IQueryResult
     {
-        public List<Grade> ActivityGrades { get; internal set; }
+        public Grade ActivityGrade { get; internal set; }
         public Grade ExamGrade { get; internal set; }
         public Grade FinalGrade { get; internal set; }
 
-        public StudentSituation(List<Grade> activitygrades, Grade examGrade, Grade finalGrade )
+
+        public StudentSituation(Grade activitygrades, Grade examGrade, Grade finalGrade )
         {
-            this.ActivityGrades = activitygrades;
+            this.ActivityGrade = activitygrades;
             this.ExamGrade = examGrade;
             this.FinalGrade = finalGrade;
         }

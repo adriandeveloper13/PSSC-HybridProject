@@ -41,8 +41,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\IAggregationRoot.cs" />
+    <Compile Include="Interfaces\IDatabaseBaseObjectEntity.cs" />
+    <Compile Include="Interfaces\IDatabaseObjectEntityWithoutId.cs" />
     <Compile Include="Interfaces\IDatabaseObjectEntity.cs" />
+    <Compile Include="Interfaces\IDeanshipRepository.cs" />
     <Compile Include="Interfaces\IEntity.cs" />
+    <Compile Include="Interfaces\IStudyYearRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

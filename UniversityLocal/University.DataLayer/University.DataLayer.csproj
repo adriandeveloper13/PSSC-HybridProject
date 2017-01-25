@@ -68,6 +68,15 @@
     <Compile Include="Majors.cs">
       <DependentUpon>UniversityWriteDbModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Partials\Majors.partial.cs" />
+    <Compile Include="Partials\StudentSituation.partial.cs" />
+    <Compile Include="Partials\Teachers.partial.cs" />
+    <Compile Include="Partials\Students.partial.cs" />
+    <Compile Include="Partials\SchoolSubjects.partial.cs" />
+    <Compile Include="Partials\Laboratories.partial.cs" />
+    <Compile Include="Partials\Faculties.partial.cs" />
+    <Compile Include="Partials\Deanships.partial.cs" />
+    <Compile Include="Partials\Courses.partial.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BaseDataRepository.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
@@ -77,6 +86,9 @@
       <DependentUpon>UniversityWriteDbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Students.cs">
+      <DependentUpon>UniversityWriteDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StudentSituation.cs">
       <DependentUpon>UniversityWriteDbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Teachers.cs">

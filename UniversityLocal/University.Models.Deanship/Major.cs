@@ -16,13 +16,13 @@ namespace University.Models.Deanship
     {
         public UniqueIdentifier Id { get; internal set; }
         public PlainText Name { get; internal set; }
-        public Uri SpecializationWebsite { get; internal set; }
+        public string Website { get; internal set; }
 
-        internal Major(UniqueIdentifier id, PlainText name, Uri spcializationWebsite)
+        internal Major(UniqueIdentifier id, PlainText name, string spcializationWebsite)
         {
             Id = id;
             Name = name;
-            SpecializationWebsite = spcializationWebsite;
+            Website = spcializationWebsite;
         }
 
         #region override objects
