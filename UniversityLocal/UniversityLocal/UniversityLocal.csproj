@@ -45,6 +45,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.2.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CodeContracts, Version=1.0.5680.18392, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CodeContracts.1.0.5680.18392\lib\net40\CodeContracts.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -318,6 +326,9 @@
     <Content Include="Views\Deanship\ListFaculties.cshtml" />
     <Content Include="Views\Deanship\ListMajors.cshtml" />
     <Content Include="Views\Deanship\CreateFaculty.cshtml" />
+    <Content Include="Views\StudyYear\CreateCourse.cshtml" />
+    <Content Include="Views\StudyYear\CreateLaboratory.cshtml" />
+    <Content Include="Views\StudyYear\EditSchoolSubject.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -340,12 +351,16 @@
       <Name>Commands</Name>
     </ProjectReference>
     <ProjectReference Include="..\DbQueryExecutors\DbQueryExecutors.csproj">
-      <Project>{AB6B3BB2-13E1-4CD3-AB75-1354010F63C0}</Project>
+      <Project>{ab6b3bb2-13e1-4cd3-ab75-1354010f63c0}</Project>
       <Name>DbQueryExecutors</Name>
     </ProjectReference>
     <ProjectReference Include="..\Interfaces\Interfaces.csproj">
       <Project>{D938F8F4-6AF2-4A2F-8404-2B34A9C1C0E7}</Project>
       <Name>Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\University.BusinessLogic\University.BusinessLogic.csproj">
+      <Project>{6927a5aa-2e93-46a7-8793-f90d8d07f8ff}</Project>
+      <Name>University.BusinessLogic</Name>
     </ProjectReference>
     <ProjectReference Include="..\University.Common\University.Common.csproj">
       <Project>{EE0EE128-66BF-45D0-B282-BEE06C1B2092}</Project>

@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\SchoolSubjectEnums\SchoolSubjectCommandType.cs" />
     <Compile Include="Interfaces\IAggregationRoot.cs" />
     <Compile Include="Interfaces\IDatabaseBaseObjectEntity.cs" />
     <Compile Include="Interfaces\IDatabaseObjectEntityWithoutId.cs" />

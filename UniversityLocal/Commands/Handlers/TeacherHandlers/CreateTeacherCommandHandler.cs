@@ -26,7 +26,7 @@ namespace Commands.Handlers.TeacherHandlers
                             .ForMember(dbPrf => dbPrf.Name, vmPrf => vmPrf.MapFrom(vm => vm.Name));
                     });
 
-                    Mapper.Configuration.AssertConfigurationIsValid();
+                    //Mapper.Configuration.AssertConfigurationIsValid();
 
                     var teacherRepository = new TeacherRepository();
                     var modelCommand = Mapper.Map<CreateTeacherCommand, Teachers>(command);

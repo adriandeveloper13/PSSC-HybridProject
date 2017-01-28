@@ -1,9 +1,8 @@
 ﻿var laboratoryModule = function () {
     function setlaboratoryPostData() {
         var postData = new Object();
-        postData.ID = "123c95fd-fcb4-40bc-b218-25b6ce04a5e8";
-        postData.Name = "Laborator Rezistenta materialelor";
-        postData.ContentLink = "www.laboratorrezistentamaretialelor.com";
+        postData.Name = $("#laboratory-input-name").val();
+        postData.ContentLink = $("#laboratory-input-contentLink").val();
 
         return postData;
     }

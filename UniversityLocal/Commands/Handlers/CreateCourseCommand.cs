@@ -20,7 +20,7 @@ namespace Commands.Handlers
 
         public CreateCourseCommand(Course course)
         {
-            this.Id = course.Id.UniqueId;
+            this.Id = course.RegistrationNumber.UniqueId;
             this.Name = course.Name.Name;
             this.ContentLink = course.ContentLink;
         }

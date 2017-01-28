@@ -34,7 +34,7 @@ namespace Commands.Handlers.StudentHandlers
                                 .ForMember(dbUsr => dbUsr.Credits, vmUsr => vmUsr.MapFrom(vm => vm.Credits._credits));
                             });
 
-                    Mapper.Configuration.AssertConfigurationIsValid();
+                    //Mapper.Configuration.AssertConfigurationIsValid();
 
                     var studentRepository = new StudentRepository();
                     var modelCommand = Mapper.Map<CreateStudentCommand, Students>(command);

@@ -30,8 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper, Version=5.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.5.2.0\lib\net45\AutoMapper.dll</HintPath>
+    <Reference Include="AutoMapper, Version=4.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.2.1\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -49,6 +49,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Interfaces\Interfaces.csproj">
+      <Project>{D938F8F4-6AF2-4A2F-8404-2B34A9C1C0E7}</Project>
+      <Name>Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\University.Common\University.Common.csproj">
       <Project>{ee0ee128-66bf-45d0-b282-bee06c1b2092}</Project>
       <Name>University.Common</Name>
@@ -56,6 +60,10 @@
     <ProjectReference Include="..\University.DataLayer\University.DataLayer.csproj">
       <Project>{05ecad8d-50be-4b99-a72f-d94f69d04c22}</Project>
       <Name>University.DataLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\University.Generic\University.SharedKernel.csproj">
+      <Project>{FC59A4A2-2C92-48DF-9DA9-1C3DA60D257D}</Project>
+      <Name>University.SharedKernel</Name>
     </ProjectReference>
     <ProjectReference Include="..\University.Models.SchoolSubject\University.Models.StudyYear.csproj">
       <Project>{2D327D1E-236A-4C8E-B95E-20D0A543C971}</Project>

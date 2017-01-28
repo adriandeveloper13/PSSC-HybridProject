@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Script.Serialization;
-using AutoMapper;
 using Commands;
 using University.Models.StudyYear;
 
@@ -36,12 +35,12 @@ namespace University.Services
         //    }
         }
 
-        public void AddStudent(Student student)
-        {
-            var createStudentCommand = new CreateStudentCommand(student);
-            Mapper.Map(student, createStudentCommand);
+        //public void AddStudent(Student student)
+        //{
+        //    var createStudentCommand = new CreateStudentCommand(student);
+        //    Mapper.Map(student, createStudentCommand);
 
-            //var commandResult = await new CommandDispatcher(NinjectWebCommon.cre).Dispatch(createStudentCommand);
-        }
+        //    //var commandResult = await new CommandDispatcher(NinjectWebCommon.cre).Dispatch(createStudentCommand);
+        //}
     }
 }

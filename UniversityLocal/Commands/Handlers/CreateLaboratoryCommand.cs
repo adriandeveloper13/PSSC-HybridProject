@@ -20,7 +20,7 @@ namespace Commands.Handlers
 
         public CreateLaboratoryCommand(Laboratory lab)
         {
-            this.Id = lab.Id.UniqueId;
+            this.Id = lab.RegistrationNumber.UniqueId;
             this.Name = lab.Name.Name;
             this.ContentLink = lab.ContentLink;
         }

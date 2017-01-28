@@ -32,7 +32,7 @@ namespace DbQueryExecutors.Handlers.SchoolSubjectHandlers
                     cfg.CreateMap<SchoolSubjects, SchoolSubject>()
                     //.DisableCtorValidation()
                     //.ReverseMap()
-                    //.ForMember(dbUsr => dbUsr.Id, vmUsr => vmUsr.MapFrom(vm => vm.RegistrationNumber))
+                    //.ForMember(dbUsr => dbUsr.RegistrationNumber, vmUsr => vmUsr.MapFrom(vm => vm.RegistrationNumber))
                     //.ForMember(dbUsr => dbUsr.Name, vmUsr => vmUsr.MapFrom(vm => vm.Name.Text))
                     //.ForMember(dbUsr => dbUsr.Credits, vmUsr => vmUsr.MapFrom(vm => vm.Credits._credits));
 

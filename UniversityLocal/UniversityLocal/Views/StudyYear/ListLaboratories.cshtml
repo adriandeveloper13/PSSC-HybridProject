@@ -4,12 +4,10 @@
     ViewBag.Title = "ListLaboratories";
 }
 
-<h2>ListLaboratories</h2>
+<h2>DDDLaboratories</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<input type="button" name="create-lab-btn" value="Create Laborator " onclick="laboratoryModule.addLaboratoryPost()"/>
+
+<input type="button" name="create-lab-btn" value="Create Laborator " onclick="ocation.href='@Url.Action("AddLaboratory","StudyYear")'"/>
 <table class="table">
     <tr>
         <th>
@@ -24,7 +22,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Name)
+            @Html.DisplayFor(modelItem => item.Name.Name)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ContentLink)

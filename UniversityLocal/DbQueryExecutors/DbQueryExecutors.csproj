@@ -30,8 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper, Version=5.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.5.2.0\lib\net45\AutoMapper.dll</HintPath>
+    <Reference Include="AutoMapper, Version=4.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.2.1\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -70,6 +70,7 @@
     <Compile Include="Handlers\DeanshipHandlers\GetFacultyCommandHandler.cs" />
     <Compile Include="Handlers\LaboratoryHandlers\GetLaboratoryQueryHandler.cs" />
     <Compile Include="Handlers\SchoolSubjectHandlers\GetSchoolSubjectQueryHandler.cs" />
+    <Compile Include="Handlers\SchoolSubjectHandlers\UpdateSchoolSubjectQueryHandler.cs" />
     <Compile Include="Handlers\StudentHandlers\GetStudentsQueryHandler.cs" />
     <Compile Include="Handlers\StudentHandlers\UpdateStudentQueryHandler.cs" />
     <Compile Include="Handlers\TeacherHandlers\GetTeacherQueryHandler.cs" />
@@ -87,6 +88,8 @@
     <Compile Include="QueryDispatcher.cs" />
     <Compile Include="QueryResult.cs" />
     <Compile Include="GetStudentsQuery.cs" />
+    <Compile Include="UpdateSchoolSubjectQuery.cs" />
+    <Compile Include="UpdateSchoolSubjectQueryResult.cs" />
     <Compile Include="UpdateStudentQuery.cs" />
     <Compile Include="UpdateStudentQueryResult.cs" />
   </ItemGroup>
@@ -94,6 +97,10 @@
     <ProjectReference Include="..\Interfaces\Interfaces.csproj">
       <Project>{D938F8F4-6AF2-4A2F-8404-2B34A9C1C0E7}</Project>
       <Name>Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\University.BusinessLogic\University.BusinessLogic.csproj">
+      <Project>{6927a5aa-2e93-46a7-8793-f90d8d07f8ff}</Project>
+      <Name>University.BusinessLogic</Name>
     </ProjectReference>
     <ProjectReference Include="..\University.Common\University.Common.csproj">
       <Project>{EE0EE128-66BF-45D0-B282-BEE06C1B2092}</Project>

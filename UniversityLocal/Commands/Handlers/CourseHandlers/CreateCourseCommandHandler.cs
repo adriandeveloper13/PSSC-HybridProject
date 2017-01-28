@@ -26,7 +26,7 @@ namespace Commands.Handlers.CourseHandlers
                         //.ForMember(dbPrf => dbPrf.Name, vmPrf => vmPrf.MapFrom(vm => vm.Name));
                     });
 
-                    Mapper.Configuration.AssertConfigurationIsValid();
+                    //Mapper.Configuration.AssertConfigurationIsValid();
 
                     var studyYearRepository = new StudyYearRepository<Courses>();
                     var modelCommand = Mapper.Map<CreateCourseCommand, Courses>(command);

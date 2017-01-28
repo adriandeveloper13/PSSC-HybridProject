@@ -30,8 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper">
-      <HintPath>..\packages\AutoMapper.5.2.0\lib\net45\AutoMapper.dll</HintPath>
+    <Reference Include="AutoMapper, Version=4.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.2.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -68,15 +69,14 @@
     <Compile Include="CreateDeanshipCommand.cs" />
     <Compile Include="CreateFacultyCommand.cs" />
     <Compile Include="CreateTeacherCommand.cs" />
-    <Compile Include="CreateSchoolSubjectCommand.cs" />
+    <Compile Include="CreateOrUpdateSchoolSubjectCommand.cs" />
     <Compile Include="CreateStudentCommand.cs" />
     <Compile Include="Handlers\CreateLaboratoryCommand.cs" />
     <Compile Include="Handlers\CreateCourseCommand.cs" />
     <Compile Include="Handlers\CourseHandlers\CreateCourseCommandHandler.cs" />
     <Compile Include="Handlers\FacultyHandlers\CreateFacultyCommandHandler.cs" />
     <Compile Include="Handlers\LaboratoryHandlers\CreateLaboratoryCommandHandler.cs" />
-    <Compile Include="Handlers\SchoolSubjectHandlers\CreateSchoolSubjectCommandHandler.cs" />
-    <Compile Include="Handlers\SchoolSubjectHandlers\UpdateSchoolSubjectCommandHandler.cs" />
+    <Compile Include="Handlers\SchoolSubjectHandlers\CreateOrUpdateSchoolSubjectCommandHandler.cs" />
     <Compile Include="Handlers\TeacherHandlers\CreateTeacherCommandHandler.cs" />
     <Compile Include="Handlers\StudentHandlers\CreateStudentCommandHandler.cs" />
     <Compile Include="Handlers\StudentHandlers\UpdateStudentCommandHandler.cs" />

@@ -8,15 +8,16 @@ namespace University.Models.StudyYear
 {
     public class Laboratory : ValueObject<Laboratory>, IQueryResult
     {
-        public UniqueIdentifier Id { get; internal set; }
+        public UniqueIdentifier RegistrationNumber { get; set; }
         public PlainText Name { get; internal set; }
 
         public string ContentLink { get; internal set; }
 
+        public Laboratory() { }
         internal Laboratory(UniqueIdentifier id, PlainText name, string contentLink)
         {
-            Contract.Requires(Id != null, "The course name cannot be empty");
-            Id = id;
+            Contract.Requires(RegistrationNumber != null, "The course name cannot be empty");
+            RegistrationNumber = id;
             Name = name;
             ContentLink = contentLink;
         }

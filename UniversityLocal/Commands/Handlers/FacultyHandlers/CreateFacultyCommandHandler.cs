@@ -26,7 +26,7 @@ namespace Commands.Handlers.FacultyHandlers
                         .ForMember(dbUsr => dbUsr.Website, vmUsr => vmUsr.MapFrom(vm => vm.Website));
                     });
 
-                    Mapper.Configuration.AssertConfigurationIsValid();
+                    //Mapper.Configuration.AssertConfigurationIsValid();
 
                     var facultyRepositoryRepository = new DeanshipRepository<Faculties>();
                     var modelCommand = Mapper.Map<CreateFacultyCommand, Faculties>(command);

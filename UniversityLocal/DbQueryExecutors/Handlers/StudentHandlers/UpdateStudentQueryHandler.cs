@@ -13,11 +13,12 @@ using University.Models.StudyYear;
 
 namespace DbQueryExecutors.Handlers.StudentHandlers
 {
-    public class UpdateStudentQueryHandler: IQueryHandler<UpdateStudentQuery, UpdateStudentQueryResult>
+    public class UpdateStudentQueryHandler : IQueryHandler<UpdateStudentQuery, UpdateStudentQueryResult>
     {
         public async Task<UpdateStudentQueryResult> Retrieve(UpdateStudentQuery query)
         {
-            try { 
+            try
+            {
                 var updateStudentQueryResult = new UpdateStudentQueryResult();
                 updateStudentQueryResult.IsSuccess = false;
 
@@ -30,7 +31,7 @@ namespace DbQueryExecutors.Handlers.StudentHandlers
                     cfg.CreateMap<Students, Student>()
                         //.DisableCtorValidation()
                         //.ReverseMap()
-                        //.ForMember(dbUsr => dbUsr.Id, vmUsr => vmUsr.MapFrom(vm => vm.RegistrationNumber))
+                        //.ForMember(dbUsr => dbUsr.RegistrationNumber, vmUsr => vmUsr.MapFrom(vm => vm.RegistrationNumber))
                         //             .ForMember(dbUsr => dbUsr.Name, vmUsr => vmUsr.MapFrom(vm => vm.Name.Text))
                         //             .ForMember(dbUsr => dbUsr.Credits, vmUsr => vmUsr.MapFrom(vm => vm.Credits._credits));
 
@@ -53,12 +54,12 @@ namespace DbQueryExecutors.Handlers.StudentHandlers
                 updateStudentQueryResult.UpdatedStudent = modelStudentQuery;
 
                 return updateStudentQueryResult;
-           }
-           catch (Exception ex)
-           {
-               throw ex;
-           }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
 
-}
+        }
     }
 }

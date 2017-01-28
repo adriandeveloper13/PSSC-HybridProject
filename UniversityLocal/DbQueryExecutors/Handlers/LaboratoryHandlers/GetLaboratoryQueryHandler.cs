@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using DbQueryExecutors.Queries.SchoolSubjectsQueries;
 using Interfaces.Queries;
+using University.BusinessLogic;
 using University.DataLayer;
 using University.DataLayer.Implementation.Repositories;
 using University.Generic;
@@ -28,19 +29,6 @@ namespace DbQueryExecutors.Handlers.LaboratoryHandlers
                 List<Laboratories> databaseQueryLaboratories = (List<Laboratories>)await laboratoriesRepository.GetAllAsync().ConfigureAwait(false);
 
 
-                Mapper.Initialize(cfg =>
-                {
-                    cfg.CreateMap<Laboratories, Laboratory>()
-                    //.DisableCtorValidation()
-                    //.ReverseMap()
-                    //.ForMember(dbUsr => dbUsr.Id, vmUsr => vmUsr.MapFrom(vm => vm.Id))
-                    //             .ForMember(dbUsr => dbUsr.Name, vmUsr => vmUsr.MapFrom(vm => vm.Name))
-                    //             .ForMember(dbUsr => dbUsr.ContentLink, vmUsr => vmUsr.MapFrom(vm => vm.ContentLink));
-                    .ForMember(vm => vm.Id, dbUsr => dbUsr.MapFrom(db => new UniqueIdentifier { UniqueId = db.Id }))
-                    .ForMember(vm => vm.Name, dbUsr => dbUsr.MapFrom(db => new PlainText { Name = db.Name }))
-                    .ForMember(vm => vm.ContentLink, dbUsr => dbUsr.MapFrom(db => db.ContentLink));
-                });
-
                 getLaboratoriesQueryResult.LaboratoriesList = StudyYearFactory.Instance.CreateLaboratoriesList();
                 if (databaseQueryLaboratories == null)
                 {
@@ -52,7 +40,7 @@ namespace DbQueryExecutors.Handlers.LaboratoryHandlers
                 getLaboratoriesQueryResult.IsSuccess = true;
                 foreach (var lab in databaseQueryLaboratories)
                 {
-                    var modelLaboratoryQuery = Mapper.Map<Laboratories, Laboratory>(lab);
+                    var modelLaboratoryQuery = lab.CopyTo<Laboratory>();
                     getLaboratoriesQueryResult.LaboratoriesList.Add(modelLaboratoryQuery);
                 }
 

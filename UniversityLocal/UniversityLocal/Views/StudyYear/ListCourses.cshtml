@@ -1,9 +1,8 @@
 ﻿@model IEnumerable<University.Models.StudyYear.Course>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<input type="button" name="add-course-btn" value="Create course" onclick="courseModule.addCoursePost();"/>
+
+<input type="button" name="add-course-btn" value="Create course" onclick="location.href ='@Url.Action("AddCourse","StudyYear")'"/>
+
 <table class="table">
     <tr>
         <th>
@@ -19,15 +18,15 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Name)
+                @Html.DisplayFor(modelItem => item.Name.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ContentLink)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new {id = item.Id}) |
-                @Html.ActionLink("Details", "Details", new {id = item.Id}) |
-                @Html.ActionLink("Delete", "Delete", new {id = item.Id})
+                @Html.ActionLink("Edit", "Edit", new {id = item.RegistrationNumber}) |
+                @Html.ActionLink("Details", "Details", new {id = item.RegistrationNumber}) |
+                @Html.ActionLink("Delete", "Delete", new {id = item.RegistrationNumber})
             </td>
         </tr>
     }

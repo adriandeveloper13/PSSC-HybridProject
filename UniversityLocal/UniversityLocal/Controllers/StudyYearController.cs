@@ -6,9 +6,11 @@ using System.Web;
 using System.Web.Mvc;
 using Commands;
 using Commands.Handlers;
+using DbQueryExecutors;
 using DbQueryExecutors.Queries.SchoolSubjectsQueries;
 using Interfaces.Commands;
 using Interfaces.Queries;
+using University.Common.Enums.SchoolSubjectEnums;
 using University.Generic;
 using University.Generic.Exceptions;
 using University.Models.Deanship;
@@ -44,6 +46,11 @@ namespace UniversityLocal.Controllers
             return View("ListCourses", courses.CoursesList);
         }
 
+        public ActionResult AddCourse()
+        {
+            return View("CreateCourse");
+        }
+
         [HttpPost]
         public async Task<JsonResult> AddCourse(CreateCourseCommand createCourseCommand)
         {
@@ -76,7 +83,10 @@ namespace UniversityLocal.Controllers
             return View("ListLaboratories", laboratory.LaboratoriesList);
         }
 
-
+        public ActionResult AddLaboratory()
+        {
+            return View("CreateLaboratory");
+        }
 
         [HttpPost]
         public async Task<JsonResult> AddLaboratory(CreateLaboratoryCommand createLaboratoryCommand)
@@ -95,7 +105,7 @@ namespace UniversityLocal.Controllers
             return Json("");
         }
         [HttpPost]
-        public async Task<JsonResult> AddSchoolSubject(CreateSchoolSubjectCommand schoolSubjectCommand)
+        public async Task<JsonResult> AddSchoolSubject(CreateOrUpdateSchoolSubjectCommand schoolSubjectCommand)
         {
             //here I must to have an parameter like CreateSchoolSubject command without complex properties like PlainText
             var schoolSubject = StudyYearFactory.Instance.CreateSchoolSubject(Guid.NewGuid(), schoolSubjectCommand.Name,
@@ -103,7 +113,7 @@ namespace UniversityLocal.Controllers
                 new List<Laboratory>(), new List<Course>());
             try
             {
-                await _commandDispatcher.Dispatch(new CreateSchoolSubjectCommand(schoolSubject));
+                await _commandDispatcher.Dispatch(new CreateOrUpdateSchoolSubjectCommand(schoolSubject, SchoolSubjectCommandType.CreateCommand));
             }
             catch (Exception ex)
             {
@@ -132,6 +142,36 @@ namespace UniversityLocal.Controllers
         public ActionResult AddSchoolSubject()
         {
             return View("CreateSchoolSubject");
+        }
+
+        // GET: Student/Edit/5
+        public async Task<ActionResult> UpdateSchoolSubject(Guid schoolSubjectId)
+        {
+            var updateSchoolSubjectQuery = new UpdateSchoolSubjectQuery(schoolSubjectId);
+            var schoolSubject =
+                await _queryDispatcher.Dispatch<UpdateSchoolSubjectQuery, UpdateSchoolSubjectQueryResult>(updateSchoolSubjectQuery);
+
+            ViewBag.SchoolSubjectId = schoolSubjectId;
+            ViewBag.SchoolSubjectName = schoolSubject.UpdatedSchoolSubject.Name.Name;
+            ViewBag.SchoolSubjectCredits = schoolSubject.UpdatedSchoolSubject.Credits._credits;
+
+            return View("EditSchoolSubject", schoolSubject.UpdatedSchoolSubject);
+        }
+
+        [HttpPost]
+        public async Task<JsonResult> UpdateSchoolSubject(CreateOrUpdateSchoolSubjectCommand updateSchoolSubjectCommand)
+        {
+            try
+            {
+                updateSchoolSubjectCommand.CommandType = SchoolSubjectCommandType.UpdateCommand;
+                await _commandDispatcher.Dispatch(updateSchoolSubjectCommand);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return Json("return");
         }
         public virtual async Task<SchoolSubject> GetSchoolSubjectsById()
         {

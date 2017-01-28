@@ -22,6 +22,10 @@ namespace University.Models.StudyYear
             return studyYear;
         }
 
+        public SchoolSubject CreateSchoolSubject()
+        {
+            return new SchoolSubject();
+        }
         public SchoolSubject CreateSchoolSubject(Guid Id, string name, int proportion, int credits, int evaluationType, List<Laboratory> laboratories, List<Course> courses )
         {
             Contract.Requires<ArgumentNullException>(name != null, "The name is null !");
@@ -32,7 +36,6 @@ namespace University.Models.StudyYear
                 new PlainText(name), 
                 new Proportion(proportion, 1), 
                 new Credits(credits),
-                //(EvaluationType)Enum.Parse(typeof(EvaluationType), evaluationType, true),
                 (EvaluationType)evaluationType,
                 laboratories,
                 courses

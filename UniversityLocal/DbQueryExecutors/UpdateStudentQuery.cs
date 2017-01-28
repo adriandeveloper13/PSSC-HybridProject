@@ -9,7 +9,7 @@ namespace DbQueryExecutors
 {
     public class UpdateStudentQuery: IQuery
     {
-        public Guid StudentId { get; set; }
+        public Guid StudentId { get; internal set; }
 
         public UpdateStudentQuery(Guid studentId)
         {

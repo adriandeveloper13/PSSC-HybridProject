@@ -7,14 +7,16 @@ namespace University.Models.StudyYear
 {
     public class Course : ValueObject<Course>, IQueryResult
     {
-        public UniqueIdentifier Id { get; internal set; }
+        public UniqueIdentifier RegistrationNumber { get; set; }
         public PlainText Name { get; internal set; }
 
         public string ContentLink { get; internal set; }
 
-        internal Course(UniqueIdentifier id, PlainText name, string contentLink)
+        public Course()
+        { }
+        internal Course(UniqueIdentifier registrationNumber, PlainText name, string contentLink)
         {
-            Id = id;
+            RegistrationNumber = registrationNumber;
             Name = name;
             ContentLink = contentLink;
         }
