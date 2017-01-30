@@ -7,15 +7,17 @@ using System.Threading.Tasks;
 
 namespace University.Generic
 {
-    public class Proportion
+    public class Proportion: ValueObject<Proportion>
     {
 
         private int _numerator;
-        private int _denominator;
+        private int _denominator = 1;
 
-        public decimal Fraction { get { return (decimal)_numerator / (decimal)_denominator; } }
+        public decimal FinalProportion { get; set; }
+        public decimal Fraction { get { return (decimal)_numerator / (decimal)_denominator; }  set { ; } }
 
-        internal Proportion(int numerator, int denominator)
+        public Proportion(){}
+        public Proportion(int numerator, int denominator)
         {
             Contract.Requires<ArgumentException>(numerator > 0, "numerator");
             Contract.Requires<ArgumentException>(denominator > 0, "denominator");
@@ -23,19 +25,20 @@ namespace University.Generic
 
             _denominator = denominator;
             _numerator = numerator;
+            this.FinalProportion = numerator;
         }
 
         #region override object
-        public override bool Equals(object obj)
-        {
-            var coeficient = (Proportion)obj;
-            return coeficient._numerator == _numerator && coeficient._denominator == _denominator;
-        }
+        //public override bool Equals(object obj)
+        //{
+        //    var coeficient = (Proportion)obj;
+        //    return coeficient._numerator == _numerator && coeficient._denominator == _denominator;
+        //}
 
-        public override int GetHashCode()
-        {
-            return Fraction.GetHashCode();
-        }
+        //public override int GetHashCode()
+        //{
+        //    return Fraction.GetHashCode();
+        //}
 
         public override string ToString()
         {

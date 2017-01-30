@@ -40,17 +40,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Deanship.cs" />
-    <Compile Include="Professor.cs" />
+    <Compile Include="Teacher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SchoolSubject.cs" />
-    <Compile Include="SchoolSubjectStudentAssignments.cs" />
-    <Compile Include="Student.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\University.Generic\University.Generic.csproj">
+    <ProjectReference Include="..\Base\Base.csproj">
+      <Project>{b3ac08c4-1a4c-4180-b8a9-76a76e21ed61}</Project>
+      <Name>Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\University.DataLayer\University.DataLayer.csproj">
+      <Project>{05ECAD8D-50BE-4B99-A72F-D94F69D04C22}</Project>
+      <Name>University.DataLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\University.Generic\University.SharedKernel.csproj">
       <Project>{fc59a4a2-2c92-48df-9da9-1c3da60d257d}</Project>
-      <Name>University.Generic</Name>
+      <Name>University.SharedKernel</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

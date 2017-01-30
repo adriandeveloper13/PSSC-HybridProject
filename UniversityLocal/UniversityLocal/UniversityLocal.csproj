@@ -45,6 +45,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.2.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CodeContracts, Version=1.0.5680.18392, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CodeContracts.1.0.5680.18392\lib\net40\CodeContracts.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -78,9 +86,29 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Extensions.Conventions, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Extensions.Conventions.3.2.0.0\lib\net45-full\Ninject.Extensions.Conventions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.Common, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Web.Common.3.2.3.0\lib\net45-full\Ninject.Web.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.Mvc, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.MVC5.3.2.1.0\lib\net45-full\Ninject.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Linq.Dynamic, Version=1.0.6132.35681, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.7\lib\net40\System.Linq.Dynamic.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -130,6 +158,10 @@
     <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
@@ -194,13 +226,16 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\DeanshipController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\ProfessorController.cs" />
+    <Compile Include="Controllers\StudyYearController.cs" />
+    <Compile Include="Controllers\TeacherController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -224,6 +259,14 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\Custom\ajaxHelper.js" />
+    <Content Include="Scripts\Custom\commonModule.js" />
+    <Content Include="Scripts\Custom\courseModule.js" />
+    <Content Include="Scripts\Custom\deanshipModule.js" />
+    <Content Include="Scripts\Custom\laboratoryModule.js" />
+    <Content Include="Scripts\Custom\schoolSubjectModule.js" />
+    <Content Include="Scripts\Custom\studentModule.js" />
+    <Content Include="Scripts\Custom\teacherModule.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -270,12 +313,26 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Service References\Application Insights\ConnectedService.json" />
+    <Content Include="Views\Student\Index.cshtml" />
+    <Content Include="Views\Student\Create.cshtml" />
+    <Content Include="Views\Student\List.cshtml" />
+    <Content Include="Views\Student\Edit.cshtml" />
+    <Content Include="Views\Teacher\Create.cshtml" />
+    <Content Include="Views\Teacher\List.cshtml" />
+    <Content Include="Views\StudyYear\CreateSchoolSubject.cshtml" />
+    <Content Include="Views\StudyYear\ListSchoolSubjects.cshtml" />
+    <Content Include="Views\StudyYear\ListCourses.cshtml" />
+    <Content Include="Views\StudyYear\ListLaboratories.cshtml" />
+    <Content Include="Views\Deanship\ListFaculties.cshtml" />
+    <Content Include="Views\Deanship\ListMajors.cshtml" />
+    <Content Include="Views\Deanship\CreateFaculty.cshtml" />
+    <Content Include="Views\StudyYear\CreateCourse.cshtml" />
+    <Content Include="Views\StudyYear\CreateLaboratory.cshtml" />
+    <Content Include="Views\StudyYear\EditSchoolSubject.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Deanship\" />
-    <Folder Include="Views\Professor\" />
-    <Folder Include="Views\Student\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -289,9 +346,53 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\University.Models\University.Models.csproj">
-      <Project>{5aafc24d-e474-4b77-b230-460f3f106b94}</Project>
-      <Name>University.Models</Name>
+    <ProjectReference Include="..\Commands\Commands.csproj">
+      <Project>{88093167-6D4D-483C-99FD-9A0E2F27E90E}</Project>
+      <Name>Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DbQueryExecutors\DbQueryExecutors.csproj">
+      <Project>{ab6b3bb2-13e1-4cd3-ab75-1354010f63c0}</Project>
+      <Name>DbQueryExecutors</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Interfaces\Interfaces.csproj">
+      <Project>{D938F8F4-6AF2-4A2F-8404-2B34A9C1C0E7}</Project>
+      <Name>Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\University.BusinessLogic\University.BusinessLogic.csproj">
+      <Project>{6927a5aa-2e93-46a7-8793-f90d8d07f8ff}</Project>
+      <Name>University.BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\University.Common\University.Common.csproj">
+      <Project>{EE0EE128-66BF-45D0-B282-BEE06C1B2092}</Project>
+      <Name>University.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\University.DataLayer.Implementation\University.DataLayer.Implementation.csproj">
+      <Project>{61e8657b-ca60-4837-a1ce-f2bbabb61b05}</Project>
+      <Name>University.DataLayer.Implementation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\University.DataLayer\University.DataLayer.csproj">
+      <Project>{05ecad8d-50be-4b99-a72f-d94f69d04c22}</Project>
+      <Name>University.DataLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\University.Generic\University.SharedKernel.csproj">
+      <Project>{FC59A4A2-2C92-48DF-9DA9-1C3DA60D257D}</Project>
+      <Name>University.SharedKernel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\University.Models.Deanship\University.Models.Deanship.csproj">
+      <Project>{C4BF73B9-80E2-47C0-BE0C-65385FC41B54}</Project>
+      <Name>University.Models.Deanship</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\University.Models.SchoolSubject\University.Models.StudyYear.csproj">
+      <Project>{2D327D1E-236A-4C8E-B95E-20D0A543C971}</Project>
+      <Name>University.Models.StudyYear</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\University.Models.Teacher\University.Models.Teacher.csproj">
+      <Project>{CD40C0E8-D394-441D-B61D-B6967AE9C903}</Project>
+      <Name>University.Models.Teacher</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\University.Services\University.Services.csproj">
+      <Project>{4de7da9d-a530-4cf6-9988-06a16682a329}</Project>
+      <Name>University.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

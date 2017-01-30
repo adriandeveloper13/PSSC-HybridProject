@@ -1,0 +1,40 @@
+﻿@model IEnumerable<University.Models.StudyYear.Course>
+
+
+<input type="button" name="add-course-btn" value="Create course" onclick="location.href ='@Url.Action("AddCourse","StudyYear")'"/>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContentLink)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContentLink)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {id = item.RegistrationNumber}) |
+                @Html.ActionLink("Details", "Details", new {id = item.RegistrationNumber}) |
+                @Html.ActionLink("Delete", "Delete", new {id = item.RegistrationNumber})
+            </td>
+        </tr>
+    }
+
+</table>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/courseScript")
+}
+
+

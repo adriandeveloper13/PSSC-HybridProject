@@ -4,88 +4,58 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using Commands;
+using DbQueryExecutors.Queries.DeanshipQueries;
+using Interfaces.Commands;
+using Interfaces.Queries;
+using University.Generic;
 using University.Models;
+using University.Models.Deanship;
+using University.Models.StudyYear;
 
 namespace UniversityLocal.Controllers
 {
-    public class DeanshipController : Controller
+    public class DeanshipController : BaseController
     {
-        // GET: Deanship
-        public ActionResult Index()
+
+        private readonly IQueryDispatcher _queryDispatcher;
+        private readonly ICommandDispatcher _commandDispatcher;
+        //private readonly StudentService _service;
+
+        public DeanshipController(ICommandDispatcher commandDispatcher, IQueryDispatcher queryDispatcher)
         {
-            return View();
+            _commandDispatcher = commandDispatcher;
+            _queryDispatcher = queryDispatcher;
+        }
+        public async Task<JsonResult> AddFaculty(CreateFacultyCommand createFacultyCmd)
+        {
+            var faculty = DeanshipFactory.Instance.CreateFaculty(Guid.NewGuid(), createFacultyCmd.Name, createFacultyCmd.Website);
+            await _commandDispatcher.Dispatch(new CreateFacultyCommand(faculty));
+
+            return Json("dsa");
         }
 
-        // GET: Deanship/Details/5
-        public ActionResult Details(int id)
+        public async Task<ActionResult> GetAllFaculties(GetFacultyQuery facultyQuery = null)
         {
-            return View();
-        }
-
-        // GET: Deanship/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Deanship/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
+            if (facultyQuery == null)
             {
-                // TODO: Add insert logic here
+                facultyQuery = new GetFacultyQuery();
+            }
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            var faculties = await _queryDispatcher.Dispatch<GetFacultyQuery, GetFacultyQueryResult>(facultyQuery);
+
+            return View("ListFaculties", faculties.FacultiesList);
         }
 
-        // GET: Deanship/Edit/5
-        public ActionResult Edit(int id)
+        [HttpGet]
+        public  ActionResult AddFaculty()
         {
-            return View();
+            return View("CreateFaculty");
         }
-
-        // POST: Deanship/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [HttpGet]
+        public ActionResult GetAllStudents()
         {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Deanship/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Deanship/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return null;
         }
 
 
@@ -95,17 +65,7 @@ namespace UniversityLocal.Controllers
             return null;
         }
 
-        public virtual async Task<SchoolSubjectStudentAssignments> AssignSchoolSubjectToStudent()
-        {
-            return null;
-        }
-
-        public virtual async Task<SchoolSubjectStudentAssignments> CalculateAverageOfGradesForAStudentSchoolSubject()
-        {
-            return null;
-        }
-
-        public virtual async Task<T> GenerateGradeRaport()
+        public virtual async Task<Grade> GenerateGradeRaport()
         {
 
             return null;
